@@ -25,6 +25,9 @@ Pas d'info => page par défaut
 // require __DIR__.'/functions.php';
 require __DIR__.'/../app/Controllers/MainController.php';
 
+// var_dump($_GET);
+// array (size=1)
+//  'page' => string '/home' (length=5)
 
 /**********************************
 //?    Je m'occupe de $_GET et je définis la vue à afficher
@@ -40,7 +43,7 @@ if (isset($_GET['page'])) {
     $currentPage = $_GET['page'];
 } else {
     // notre page par défaut
-    $currentPage = "home";
+    $currentPage = "/home";
 }
 
 //? ici nous avons la même condition mais sur une seule ligne :
@@ -52,19 +55,43 @@ if (isset($_GET['page'])) {
 */
 // $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home'
 
-
 /**********************************
-//?    Je dois fournir des informations à mes vues
-//?    Ici je donne les informations suivant la vue que l'on a demandé
+//?    associer l'URL avec la méthode du controller correspondant
+//?    On appelle ça faire des "routes" ou routing 
 **********************************/
-// Je créer une instance de MainController
-// C'est lui qui s'occupe de la méthode show()
+$routes = [
+    "/home" => [
+        "method" => "affichePageHome"
+    ],
+    "/about" => [
+        "method" => "affichePageAbout"
+    ]
+];
+/* DEBUG
+echo "routes : <br>";
+var_dump($routes);
+*/
+
 $controller = new MainController();
 
-if ($currentPage == 'home') {
-    // comme c'est le rôle du controller
-    // je lui demande d'afficher la page home
-    // sans rien savoir de ce que le controller va faire
-    $controller->affichePageHome();
-}
+/********** Dispatcher ************/
+
+//? je récupère les informations de route
+$informationRoute = $routes[$currentPage];
+/* Debug
+echo "informationRoute : <br>";
+var_dump($informationRoute);
+["method" => "affichePageHome" ]
+*/
+
+//? je récupère le nom de la méthode associé à ma route
+$nomMethode = $informationRoute['method'];
+/* DEBUG
+echo "nomMethode : <br>";
+var_dump($nomMethode);
+*/
+
+// $nomMethode ==> affichePageHome
+// je lance la méthode en n'oubliant pas les ()
+$controller->affichePageHome();
 

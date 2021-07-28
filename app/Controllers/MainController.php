@@ -15,8 +15,15 @@ class MainController {
 
     public function affichePageHome(){
         // j'utilise la méthode show avec les bons paramètres
-        // je sais que cette méthode doit affiche la page store, obvious, le nom de la méthode
-        $this->show('home', "Je suis la page HOME");
+        // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
+        $this->show('home');
+    }
+
+    public function affichePageAbout()
+    {
+        // j'utilise la méthode show avec les bons paramètres
+        // je sais que cette méthode doit affiche la page about, obvious, le nom de la méthode
+        $this->show('about');
     }
 
     /**
@@ -31,7 +38,7 @@ class MainController {
     $viewName = $currentPage;
     $viewData = $weekOpeningHours;
     */
-    public function show($viewName, $viewData)
+    public function show($viewName, $viewData = [])
     {
         require_once __DIR__.'/../views/header.tpl.php';
 
