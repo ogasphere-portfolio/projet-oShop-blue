@@ -23,7 +23,10 @@ Pas d'info => page par défaut
 
 // j'ai besoin du fichier pour la function show()
 // require __DIR__.'/functions.php';
+require __DIR__.'/Autoloader.php';
+require __DIR__.'/../app/Class/db.php';
 require __DIR__.'/../app/Controllers/MainController.php';
+require __DIR__.'/../app/Controllers/NavController.php';
 
 // var_dump($_GET);
 // array (size=1)
@@ -78,11 +81,11 @@ $controller = new MainController();
 
 //? je récupère les informations de route
 $informationRoute = $routes[$currentPage];
-/* Debug
+//Debug
 echo "informationRoute : <br>";
 var_dump($informationRoute);
-["method" => "affichePageHome" ]
-*/
+//["method" => "affichePageHome" ]
+
 
 //? je récupère le nom de la méthode associé à ma route
 $nomMethode = $informationRoute['method'];

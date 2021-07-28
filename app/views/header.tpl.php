@@ -43,26 +43,10 @@
           aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
         <!-- Navbar Collapse -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a href="index.html" class="nav-link active">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Catégories</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Types de produit</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Marques</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact</a>
-            </li>
-          </ul>
+          
+        <ul class="navbar-nav mx-auto">
+           <?php NavController::showNavBar();  ?>    
+        </ul>
           <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
             <!-- Search Button-->
             <div class="nav-item navbar-icon-link">
