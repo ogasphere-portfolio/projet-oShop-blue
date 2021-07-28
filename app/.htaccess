@@ -1,0 +1,3 @@
+# on interdit l'accès à tout le monde
+# Apache répondra 403 si on essaye
+Deny From All
