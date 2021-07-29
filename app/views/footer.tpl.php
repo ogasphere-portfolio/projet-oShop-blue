@@ -132,10 +132,10 @@
   </footer>
 
   <!-- JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="<?= $absoluteURL ?>js/jquery.min.js"></script>
+  <script src="<?= $absoluteURL ?>js/popper.min.js"></script>
+  <script src="<?= $absoluteURL ?>js/bootstrap.min.js"></script>
+  <script src="<?= $absoluteURL ?>js/app.js"></script>
 </body>
 
 </html>

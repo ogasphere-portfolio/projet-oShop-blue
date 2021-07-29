@@ -3,9 +3,9 @@
 
 class NavController {
 
-    private static $menuItem = ['home', 'categories', 'types de produit', 'marques', 'blog','contact'];
-    
-    private static $menuList;
+    private static $menuItem = ['home', 'category', 'types de produit', 'marques', 'blog','contact'];
+    //private static $menuItem = $menuList;
+    //private static $menuList;
     public static function showNavBar(){
         foreach (self::$menuItem as $item) {
             $class = '';
@@ -19,8 +19,9 @@ class NavController {
         if($_SERVER['QUERY_STRING'] == '' && $currentItem == 'home') {
           $class = 'active';
         }
+            $absoluteURL = $_SERVER['BASE_URI'];
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="index.php?page='. lcfirst($item) .'">' . $item . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'index.php?page='. lcfirst($item) .'">' . $item . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }

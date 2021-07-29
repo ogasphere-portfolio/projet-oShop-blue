@@ -1,7 +1,8 @@
 <?php
-/************* MainController ******************* 
+/************* AboutController ******************* 
   
-Je suis le seul controller (pour l'instant)
+Je suis le controller de toutes les fonctionnalité lié aux categories
+
 
 Mon rôle est de donner les informations nécéssaires
 à l'affichage d'une vue.
@@ -9,27 +10,16 @@ Mon rôle est de donner les informations nécéssaires
 C'est aussi moi qui fait les require
 je suis donc en charge de la méthode show()
 
-Je m'appelle MainController, car je m'occupe UNIQUEMENT de la partie Main
-c'est à dire, la page "home"
+Je m'appelle AboutController, car je m'occupe UNIQUEMENT de la partie About
+c'est à dire, la page About
 
 *******************************************/
 
-class MainController {
-
-    // demo dynamique variable
-
-    
-    public $maPropriete = "ValeurDeLaPropriété";
-
-    public function affichePageHome(){
-        // j'utilise la méthode show avec les bons paramètres
-        // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
-        $this->show('home');
-    }
-    public function affichePageMentions(){
-        // j'utilise la méthode show avec les bons paramètres
-        // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
-        $this->show('mentions-legales');
+class AboutController
+{
+    public function affichePageAbout()
+    {
+        $this->show('about');
     }
 
     /**
@@ -45,8 +35,7 @@ class MainController {
     $viewData = $weekOpeningHours;
     */
     public function show($viewName, $viewData = [])
-    {   
-        $absoluteURL = $_SERVER['BASE_URI'];
+    {
         require_once __DIR__.'/../views/header.tpl.php';
 
         /****************************************** */

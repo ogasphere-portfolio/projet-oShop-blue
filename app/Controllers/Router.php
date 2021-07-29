@@ -1,6 +1,6 @@
 <?php
 
-class Router 
+/* class Router 
 {
 
     private $_ctrl;
@@ -21,4 +21,4 @@ class Router
         }
 
     }
-}
+} */
