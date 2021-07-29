@@ -24,10 +24,10 @@ Pas d'info => page par défaut
 // j'ai besoin du fichier pour la function show()
 // require __DIR__.'/functions.php';
 require __DIR__.'/Autoloader.php';
-require __DIR__.'/../app/Class/db.php';
+require __DIR__.'/../app/fonctions/db.php';
 require __DIR__.'/../app/Controllers/MainController.php';
 require __DIR__.'/../app/Controllers/NavController.php';
-
+require __DIR__.'/../app/Models/NavBar.php';
 // var_dump($_GET);
 // array (size=1)
 //  'page' => string '/home' (length=5)
@@ -70,17 +70,18 @@ $routes = [
         "method" => "affichePageAbout"
     ]
 ];
-/* DEBUG
+// DEBUG
 echo "routes : <br>";
 var_dump($routes);
-*/
+var_dump($currentPage);
+
 
 $controller = new MainController();
 
 /********** Dispatcher ************/
 
 //? je récupère les informations de route
-$informationRoute = $routes[$currentPage];
+$informationRoute = $routes['/'.$currentPage];
 //Debug
 echo "informationRoute : <br>";
 var_dump($informationRoute);

@@ -4,7 +4,8 @@
 class NavController {
 
     private static $menuItem = ['home', 'categories', 'types de produit', 'marques', 'blog','contact'];
-
+    
+    private static $menuList;
     public static function showNavBar(){
         foreach (self::$menuItem as $item) {
             $class = '';
