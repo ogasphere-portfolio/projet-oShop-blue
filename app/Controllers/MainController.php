@@ -17,8 +17,6 @@ c'est à dire, la page "home"
 class MainController {
 
     // demo dynamique variable
-
-    
     public $maPropriete = "ValeurDeLaPropriété";
 
     public function affichePageHome(){
@@ -26,10 +24,15 @@ class MainController {
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
         $this->show('home');
     }
-    public function affichePageMentions(){
-        // j'utilise la méthode show avec les bons paramètres
-        // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
-        $this->show('mentions-legales');
+
+    public function affichePageMentionLegales()
+    {
+        $this->show('legalNotice');
+    }
+
+    public function affichePageAbout()
+    {
+        $this->show('about');
     }
 
     /**
@@ -45,8 +48,12 @@ class MainController {
     $viewData = $weekOpeningHours;
     */
     public function show($viewName, $viewData = [])
-    {   
-        $absoluteURL = $_SERVER['BASE_URI'];
+    {
+        //! Correction des CSS/affichage
+        // On récupère l'URL absolue pour les URLs dans les views (css, images, etc.)
+        $absoluteURL = isset($_SERVER['BASE_URI']) ? $_SERVER['BASE_URI'] : '';
+
+        
         require_once __DIR__.'/../views/header.tpl.php';
 
         /****************************************** */

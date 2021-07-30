@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="<?= $absoluteURL ?>assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?= $absoluteURL ?>assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/styles.css">
   <title>oShop</title>
 </head>
@@ -43,10 +43,26 @@
           aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
         <!-- Navbar Collapse -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
-          
-        <ul class="navbar-nav mx-auto">
-           <?php NavController::showNavBar();  ?>    
-        </ul>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a href="<?= $absoluteURL ?>/" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $absoluteURL ?>/catalogue/categorie/12" class="nav-link">Catégories</a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $absoluteURL ?>/catalogue/type/4" class="nav-link">Types de produit</a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $absoluteURL ?>/catalogue/marque/7" class="nav-link">Marques</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $absoluteURL ?>/about" class="nav-link">About</a>
+            </li>
+          </ul>
           <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
             <!-- Search Button-->
             <div class="nav-item navbar-icon-link">

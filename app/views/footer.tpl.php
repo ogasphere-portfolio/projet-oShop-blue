@@ -110,19 +110,19 @@
             <p class="mb-md-0">Tous droits réservés<br>© <?= date('Y') ?> oShop</p>
           </div>
           <div class="col-md-6 text-center">
-            <p class="mb-md-0"><a class="text-white" href="#">Mentions légales</a><br><a class="text-white" href="#">Conditions générales de vente</a></p>
+            <p class="mb-md-0"><a class="text-white" href="<?= $absoluteURL ?>/mentions-legales">Mentions légales</a><br><a class="text-white" href="#">Conditions générales de vente</a></p>
           </div>
         
           <div class="col-md-3">
             <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
               <li class="list-inline-item">
-                <img src="assets/images/visa.svg" alt="..." class="payment-icon">
+                <img src="<?= $absoluteURL ?>/assets/images/visa.svg" alt="..." class="payment-icon">
               </li>
               <li class="list-inline-item">
-                <img src="assets/images/mastercard.svg" alt="..." class="payment-icon">
+                <img src="<?= $absoluteURL ?>/assets/images/mastercard.svg" alt="..." class="payment-icon">
               </li>
               <li class="list-inline-item">
-                <img src="assets/images/paypal.svg" alt="..." class="payment-icon">
+                <img src="<?= $absoluteURL ?>/assets/images/paypal.svg" alt="..." class="payment-icon">
               </li>
             </ul>
           </div>
@@ -132,10 +132,10 @@
   </footer>
 
   <!-- JS -->
-  <script src="<?= $absoluteURL ?>js/jquery.min.js"></script>
-  <script src="<?= $absoluteURL ?>js/popper.min.js"></script>
-  <script src="<?= $absoluteURL ?>js/bootstrap.min.js"></script>
-  <script src="<?= $absoluteURL ?>js/app.js"></script>
+  <script src="<?= $absoluteURL ?>/assets/js/jquery.min.js"></script>
+  <script src="<?= $absoluteURL ?>/assets/js/popper.min.js"></script>
+  <script src="<?= $absoluteURL ?>/assets/js/bootstrap.min.js"></script>
+  <script src="<?= $absoluteURL ?>/assets/js/app.js"></script>
 </body>
 
 </html>

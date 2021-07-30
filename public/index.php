@@ -21,20 +21,21 @@ Pas d'info => page par défaut
 //?    Require des fichiers de classe / functions / BDD / etc ...
 **********************************/
 
+// pour utiliser nos packages/outils installés par composer
+// il faudrait faire tout les require :'(
+// composer est gentile, il nous fournit un seul fichier pour tout les requires
+// le fichier de composer qui va automatiquement charger tout nos packages
+require __DIR__.'/../vendor/autoload.php';
+
+
 // j'ai besoin du fichier pour la function show()
 // require __DIR__.'/functions.php';
-
-// Fichier de Composer qui va charger les packages automatiquement
-require __DIR__.'/../vendor/autoload.php';
-$altoRouter  = new AltoRouter();
-
-require __DIR__.'/Autoloader.php';
-require __DIR__.'/../app/fonctions/db.php';
+require __DIR__.'/../app/Utils/Database.php';
 require __DIR__.'/../app/Controllers/MainController.php';
-require __DIR__.'/../app/Controllers/NavController.php';
 require __DIR__.'/../app/Controllers/CatalogController.php';
+require __DIR__.'/../app/Models/Product.php';
 
-require __DIR__.'/../app/Models/NavBar.php';
+
 // var_dump($_GET);
 // array (size=1)
 //  'page' => string '/home' (length=5)
@@ -53,7 +54,7 @@ if (isset($_GET['page'])) {
     $currentPage = $_GET['page'];
 } else {
     // notre page par défaut
-    $currentPage = "/home";
+    $currentPage = "/";
 }
 
 //? ici nous avons la même condition mais sur une seule ligne :
@@ -64,8 +65,6 @@ if (isset($_GET['page'])) {
  après le : le résultat si FAUX
 */
 // $currentPage = isset($_GET['page']) ? $_GET['page'] : 'home'
-
-
 
 /********** Router ************
 //?    associer l'URL avec la méthode du controller correspondant
@@ -80,6 +79,7 @@ $altoRouter->setBasePath($_SERVER['BASE_URI']);
 
 // http://altorouter.com/usage/mapping-routes.html
 
+/*************** Début de la déclaration des routes  */
 
 // 1er paramètre : method GET/POST
 // 2eme paramètre : URL de la route, ce qui va être analysé
@@ -87,65 +87,79 @@ $altoRouter->setBasePath($_SERVER['BASE_URI']);
 // 4eme paramètre : identifiant textuel de la route (utilisation ultérieure)
 // exemple complet : $altoRouter->map( 'GET', '/', 'render_home', 'home' );
 
-
 $altoRouter->map( 
-    'GET',
-    '/', 
-        [
-            "method" => "affichePageHome",
-            "controller" => "MainController"
-        ], 
-    'home' );
-
-/* $altoRouter->map( 
-    'GET',
-    '/home', 
-    [
+/* 1 */'GET',
+/* 2 */'/', 
+/* 3 */    [
         "method" => "affichePageHome",
         "controller" => "MainController"
     ], 
-    'home' );
- */
+/* 4 */'home' );
 
 $altoRouter->map( 
-    'GET', 
-    '/catalog/category/[i:id]',         
-    [
-        "method" => "affichePageCategory",
-        "controller" => "CatalogController"
-    ], 
-    'category' );
+    /* 1 */'GET',
+    /* 2 */'/about', 
+    /* 3 */    [
+            "method" => "affichePageAbout",
+            "controller" => "MainController"
+        ], 
+    /* 4 */'about' );
 
+// mentions légales
 $altoRouter->map( 
-    'GET', 
-    '/catalog/type/[i:id]',         
-    [
-        "method" => "affichePageType",
-        "controller" => "CatalogController"
-    ], 
-    'type' );
+    /* 1 */'GET',
+    /* 2 */'/mentions-legales', 
+    /* 3 */    [
+            "method" => "affichePageMentionLegales",
+            "controller" => "MainController"
+        ], 
+    /* 4 */'legal-notice' );
 
+
+// catalog filtré par catégorie
 $altoRouter->map( 
-    'GET', 
-    '/catalog/marque/[i:id]',         
-    [
-        "method" => "affichePageMarque",
-        "controller" => "CatalogController"
-    ], 
-    'marque' );
+    /* 1 */'GET',
+    /* 2 */'/catalogue/categorie/[i:idCategory]', 
+    /* 3 */    [
+            "method" => "affichePageCategory",
+            "controller" => "CatalogController"
+        ], 
+    /* 4 */'catalog-category' );
 
+
+//TODO creation des routes
+
+// `/catalogue/type/[idType]`
 $altoRouter->map( 
-    'GET', 
-    '/catalog/produit/[i:id]',         
-    [
-        "method" => "affichePageProduit",
-        "controller" => "CatalogController"
-    ], 
-    'produit' );
+    /* 1 */'GET',
+    /* 2 */'/catalogue/type/[i:idType]', 
+    /* 3 */    [
+            "method" => "affichePageType",
+            "controller" => "CatalogController"
+        ], 
+    /* 4 */'catalog-type' );
 
-    
-    
+//`/catalogue/marque/[idBrand]`
+$altoRouter->map( 
+    /* 1 */'GET',
+    /* 2 */'/catalogue/marque/[i:idBrand]', 
+    /* 3 */    [
+            "method" => "affichePageBrand",
+            "controller" => "CatalogController"
+        ], 
+    /* 4 */'catalog-brand' );
 
+//`/catalogue/produit/[idProduct]` 
+$altoRouter->map( 
+    /* 1 */'GET',
+    /* 2 */'/catalogue/produit/[i:idProduct]', 
+    /* 3 */    [
+            "method" => "affichePageProduct",
+            "controller" => "CatalogController"
+        ], 
+    /* 4 */'catalog-product' );
+
+/*************** Fin de la déclaration des routes  */
 
 
 // Je demande à AltoRouteur de chercher dans les routes que je lui ai donné
@@ -154,8 +168,8 @@ $altoRouter->map(
 // si aucune route ne correspond $matchingRoute va valoir FAUX (booleen)
 $matchingRoute = $altoRouter->match();
 
-
-var_dump($matchingRoute);
+// DEBUG
+// var_dump($matchingRoute);
 /* $matchingRoute peut ressembler à ça : 
 array (size=3)
   'target' => 
@@ -179,22 +193,30 @@ if ($matchingRoute) {
     //? je récupère le nom de la méthode associé à ma route
     $tableauInfo = $matchingRoute['target'];
     $nomMethode = $tableauInfo['method'];
+
+    //? je récupère les paramètres venant de la route
+    $parametresRoute = $matchingRoute['params'];
+
     // DEBUG
     // echo "nomMethode : <br>";
     // var_dump($nomMethode);
 
-
     $nomController = $matchingRoute['target']['controller'];
     // la valeur est : MainController, on instanciera donc la classe MainController
 
-     // Grace à AltoRouter, on peut récupérer le paramètre dans l'url pour l'envoyer en argument de la méthode
-     $params = $matchingRoute['params'];
+    $controller = new $nomController();
+    // $controller = new MainController();
 
-     $controller = new $nomController();
-     $controller->$nomMethode($params);
-}else 
-    {
-        // Je n'ai pas trouvé de route qui correspond
-        exit('404 not found');
+    // $nomMethode ==> affichePageHome
+    // je lance la méthode en n'oubliant pas les ()
+    // et je lui donnes les paramètres de la route récupéré par AltoRouter
+    $controller->$nomMethode($parametresRoute);
+} 
+else 
+{
+    // Je n'ai pas trouvé de route qui correspond
+    exit('404 not found');
 }
+
+
 

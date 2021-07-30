@@ -23,5 +23,3 @@ RewriteRule ^(.*)$ index.php?page=/$1 [QSA,L]
 # Coté utilisateur            => coté PHP / devéloppeur
 # localhost/mon/site/products => localhost/mon/site/index.php?page=/products
 # localhost/mon/site/about    => localhost/mon/site/index.php?page=/about
-
-

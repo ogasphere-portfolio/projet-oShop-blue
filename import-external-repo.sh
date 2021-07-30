@@ -4,21 +4,16 @@
 # 
 # Commande pour utiliser ce script BASH :
 # 
-#   sh import-external-repo.sh git@github.com:O-clock-Valkyrie/nom-de-depot.git nom-de-la-branche-a-creer [nom-de-la-branche-source]
+#   sh import-external-repo.sh git@github.com:O-clock-XXXXX/nom-de-depot.git nom-de-la-branche-a-creer [nom-de-la-branche-source]
 #
 # - l'argument "git@github.com:O-clock-XXXXX/nom-de-depot.git" correspond au lien permettant de cloner le dépôt
 # - l'argument "nom-de-la-branche-a-creer" correspond au nom de la branche dans laquelle les sources seront récupérées (on n'écrase pas les sources actuelles)
 # - l'argument OPTIONNEL "nom-de-la-branche-source" correspond au nom de la branche que l'on souhaite copier depuis le dépôt source (== "master" si non précisé)
 
-
-# tapez : sh import-external-repo.sh   #dans le terminal
-# puis copier/coller ce qui est a la suite de usage :
-
-
 if [ $# -eq 0 ] || [ $# -eq 1 ]
 then
     echo " "
-    echo "Usage: sh import-external-repo.sh git@github.com:O-clock-Valkyrie/S05-projet-oShop-JB-oclock.git Jour1-JB [branch-name-source]"
+    echo "Usage: sh import-external-repo.sh git@github.com:O-clock-XXXXX/repository-name.git branch-name-to-create [branch-name-source]"
     echo " "
     exit 0
 fi

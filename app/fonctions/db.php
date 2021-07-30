@@ -1,11 +1,5 @@
 <?php
 
-// TODO #1 créer un objet PDO permettant de se connecter à la base de données "videogame"
-// et le stocker dans la variable $pdo
-// --- START OF YOUR CODE ---
-
-
-
 $servername = 'localhost';
 $username = 'oshop';
 $password = 'oshop';
@@ -25,7 +19,3 @@ catch(PDOException $e){
   echo "Erreur : " . $e->getMessage();
   
 }
-
-
-
-// --- END OF YOUR CODE ---

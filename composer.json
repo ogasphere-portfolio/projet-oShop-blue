@@ -1,11 +1,4 @@
 {
-    "name": "student/s05-projet-o-shop-blue-olivier340",
-    "authors": [
-        {
-            "name": "Olivier",
-            "email": "olivier@ogasphere.com"
-        }
-    ],
     "require": {
         "symfony/var-dumper": "^5.3",
         "altorouter/altorouter": "^2.0"

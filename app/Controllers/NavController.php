@@ -3,7 +3,7 @@
 
 class NavController {
 
-    private static $menuItem = ['home', 'category', 'types de produit', 'marques', 'blog','contact'];
+    private static $menuItem = ['home', 'category', 'type', 'brand', 'blog','contact'];
     //private static $menuItem = $menuList;
     //private static $menuList;
     public static function showNavBar(){
@@ -21,7 +21,7 @@ class NavController {
         }
             $absoluteURL = $_SERVER['BASE_URI'];
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'index.php?page='. lcfirst($item) .'">' . $item . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'"/catalog/"'.lcfirst($item).'">' . $item . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }
