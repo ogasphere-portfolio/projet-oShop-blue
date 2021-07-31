@@ -2,7 +2,7 @@
     <div class="container">
       <!-- Breadcrumbs -->
       <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="<?= $absoluteURL ?>/">Home</a></li>
         <li class="breadcrumb-item active">Détente</li>
       </ol>
     </div>
@@ -15,14 +15,14 @@
         <!-- product-->
         <div class="col-lg-6 col-sm-12">
           <div class="product-image">
-            <a href="detail.html" class="product-hover-overlay-link">
-              <img src="images/produits/1-kiss.jpg" alt="product" class="img-fluid">
+            <a href="<?= $absoluteURL ?>/<?= $viewData['product']->picture ?>" class="product-hover-overlay-link">
+              <img src="<?= $absoluteURL ?>/<?= $viewData['product']->picture ?>" alt="product" class="img-fluid">
             </a>
           </div>
         </div>
         <div class="col-lg-6 col-sm-12">
           <div class="mb-3">
-            <h3 class="h3 text-uppercase mb-1">Kissing</h3>
+            <h3 class="h3 text-uppercase mb-1"><?= $viewData['product']->name; ?></h3>
             <div class="text-muted">by <em>BOOTstrap</em></div>
             <div>
               <i class="fa fa-star"></i>

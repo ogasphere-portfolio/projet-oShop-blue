@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="<?= $absoluteURL ?>assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?= $absoluteURL ?>assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?= $absoluteURL ?>/assets/css/styles.css">
   <title>oShop</title>
 </head>
@@ -45,7 +45,7 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
           
         <ul class="navbar-nav mx-auto">
-           <?php NavController::showNavBar();  ?>    
+           <?php NavController::showNavBar();?>    
         </ul>
           <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
             <!-- Search Button-->

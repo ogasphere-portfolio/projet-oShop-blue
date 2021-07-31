@@ -2,12 +2,12 @@
 
 class CatalogController
 {
-    public function affichePageCategory()
+    public function dysplayCategory()
     {
         $this->show('products_list');
     }
 
-    public function product($params)
+    public function dysplayProduct($params)
     {
         // dump($params['id']);
         $this->show('product');
