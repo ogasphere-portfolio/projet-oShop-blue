@@ -20,7 +20,6 @@ class MainController {
 
     
     
-
     public function dysplayHome(){
         // j'utilise la méthode show avec les bons paramètres
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode

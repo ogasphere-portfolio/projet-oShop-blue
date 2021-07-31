@@ -53,7 +53,7 @@ if (isset($_GET['page'])) {
     $currentPage = $_GET['page'];
 } else {
     // notre page par défaut
-    $currentPage = "/home";
+    $currentPage = "/";
 }
 
 //? ici nous avons la même condition mais sur une seule ligne :
