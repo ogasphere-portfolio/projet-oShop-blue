@@ -33,7 +33,8 @@ require __DIR__.'/../app/fonctions/db.php';
 require __DIR__.'/../app/Controllers/MainController.php';
 require __DIR__.'/../app/Controllers/NavController.php';
 require __DIR__.'/../app/Controllers/CatalogController.php';
-
+require __DIR__.'/../app/Models/Product.php';
+require __DIR__.'/../app/Utils/Database.php';
 require __DIR__.'/../app/Models/NavBar.php';
 // var_dump($_GET);
 // array (size=1)

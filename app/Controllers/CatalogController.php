@@ -1,19 +1,6 @@
 <?php
 
-/************* CatalogController ******************* 
-  
-Je suis le controller de toute la partie Catalogue
 
-Mon rôle est de donner les informations nécéssaires
-à l'affichage d'une vue.
-
-C'est aussi moi qui fait les require
-je suis donc en charge de la méthode show()
-
-Je m'appelle CatalogController, car je m'occupe UNIQUEMENT de la partie Catalogue
-c'est à dire, la page "catalog/category" etc ...
-
-*******************************************/
 
 class CatalogController {
 
@@ -22,18 +9,11 @@ class CatalogController {
  *
  * @param array $parametres tableau de paramètres
  */
-    public function dysplayCategory($parametres)
+    public function displayCategory($parametres)
     {
-        // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
-        // sur la liste des produits
-        // l'identifiant est ici :  $parametres['idCategory']
-        // TODO aller chercher la liste de produits dans la BDD
-        // on creer un Model Product pour utiliser les méthodes d'accès à la Base (find)
+       
         $productModel = new Product();
-
-        // avec le paramètre de la route, je peut demander les produits
-        // de la catégory demandé
-        $idCategoryQuiVientDeLaRoute = $parametres['idCategory'];
+        $idCategoryQuiVientDeLaRoute = $parametres['id'];
 
         $produitsQueJeCherche = $productModel->findAllByCategory($idCategoryQuiVientDeLaRoute);
 
@@ -94,7 +74,7 @@ class CatalogController {
 
 
         require_once __DIR__.'/../views/header.tpl.php';
-          require_once __DIR__."/../views/{$viewName}.tpl.php";
+        require_once __DIR__."/../views/{$viewName}.tpl.php";
         require_once __DIR__.'/../views/footer.tpl.php';
 
         
