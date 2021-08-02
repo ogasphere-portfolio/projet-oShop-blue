@@ -1,6 +1,6 @@
 # SQL
 
-## tout les produits d'une catégorie
+## En tant que visiteur, je veux pouvoir visualiser les produits par catégorie afin d'accéder intuitivement aux chaussures désirées
 
 category_id 1 fonctionne
 
@@ -8,7 +8,7 @@ category_id 1 fonctionne
 SELECT * FROM `product` WHERE `category_id` = ?
 ```
 
-## tout les produits d'une marque
+## En tant que visiteur, je veux pouvoir visualiser les produits par marque afin d'accéder intuitivement aux chaussures désirées
 
 brand_id 7 fonctionne
 
@@ -16,7 +16,7 @@ brand_id 7 fonctionne
 SELECT * FROM `product` WHERE `brand_id` = ?
 ```
 
-## tout les produits d'un type
+## En tant que visiteur, je veux pouvoir visualiser les produits par type afin d'accéder intuitivement aux chaussures désirées
 
 type_id 4 fonctionne
 
@@ -24,7 +24,7 @@ type_id 4 fonctionne
 SELECT * FROM `product` WHERE `type_id` = ?
 ```
 
-## un produit
+## En tant que visiteur, je veux pouvoir accéder à une description détaillée de chaque produit
 
 id 1 fonctionne
 
@@ -32,7 +32,55 @@ id 1 fonctionne
 SELECT * FROM `product` WHERE `id` = ?
 ```
 
-## exemple de INNER JOIN
+## En tant que visiteur, je veux pouvoir accéder à 5 marques mises en avant sur toutes les page afin de naviguer plus rapidement sur le site
+
+```SQL
+SELECT * FROM `brand`
+-- WHERE `footer_order` > 0
+-- WHERE `footer_order` != 0
+WHERE `footer_order` <> 0
+ORDER BY `footer_order` ASC
+```
+
+## En tant que visiteur, je veux pouvoir accéder à 5 types de produit mises en avant sur toutes les page afin de naviguer plus rapidement sur le site
+
+```SQL
+SELECT * FROM `type`
+-- WHERE `footer_order` > 0
+-- WHERE `footer_order` != 0
+WHERE `footer_order` <> 0
+ORDER BY `footer_order` ASC
+```
+
+## toutes les informations d'une catégorie
+
+```SQL
+SELECT *
+FROM `category`
+-- WHERE `name` = 'Cérémonie' 
+WHERE `id` = ?
+```
+
+## toutes les informations d'une marque
+
+```SQL
+SELECT *
+FROM `brand`
+WHERE `id` = ?
+```
+
+## toutes les informations d'un type
+
+```SQL
+SELECT *
+FROM `type`
+WHERE `id` = ?
+```
+
+
+## Exploration SQL
+
+### exemple de INNER JOIN
 
 je cherche à récupere tout les produits d'une category
 mais je veux aussi le nom de la catégorie auquel ils appartiennent

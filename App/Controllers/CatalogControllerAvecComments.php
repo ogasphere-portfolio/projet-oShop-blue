@@ -1,4 +1,6 @@
 <?php
+
+namespace App\Controllers;
 /************* CategoryController ******************* 
   
 Je suis le controller de toutes les fonctionnalité lié aux categories

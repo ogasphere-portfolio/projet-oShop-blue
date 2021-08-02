@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -45,7 +46,10 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
           
         <ul class="navbar-nav mx-auto">
-           <?php NavController::showNavBar();?>    
+           <?php
+           use App\Controllers\NavController;
+           NavController::showNavBar();
+           ?>    
         </ul>
           <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
             <!-- Search Button-->

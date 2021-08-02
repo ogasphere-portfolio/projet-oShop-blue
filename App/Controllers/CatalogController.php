@@ -1,6 +1,9 @@
 <?php
 
 
+namespace App\Controllers;
+
+use App\Models\Product;
 
 class CatalogController {
 
@@ -72,7 +75,7 @@ class CatalogController {
         
         $absoluteURL = isset($_SERVER['BASE_URI']) ? $_SERVER['BASE_URI'] : '';
 
-
+        
         require_once __DIR__.'/../views/header.tpl.php';
         require_once __DIR__."/../views/{$viewName}.tpl.php";
         require_once __DIR__.'/../views/footer.tpl.php';

@@ -1,4 +1,8 @@
 <?php
+
+namespace App\fonctions;
+
+use DateTime;
 // Vérification de date avec masque
 function valideDate($date, $format = 'Y-m-d H:i:s')
 {

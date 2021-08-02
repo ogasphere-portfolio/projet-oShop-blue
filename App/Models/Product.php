@@ -1,6 +1,12 @@
 <?php
 
 
+
+namespace App\Models;
+use PDO;
+use App\Utils\Database;
+
+
 class Product {
     
     public $id;
@@ -28,7 +34,6 @@ class Product {
 
         // je demande à récupérer les données au format objet de type Product
         $produitDeLaBase = $pdoStatement->fetchObject('Product');
-        
         return $produitDeLaBase;
     }
 
@@ -48,7 +53,7 @@ class Product {
 
         $produitsDeLaBase = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Product');
         
-
+        
         return $produitsDeLaBase;
     }
 }

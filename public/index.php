@@ -1,4 +1,6 @@
 <?php
+
+
 /************* Point d'entrée ******************* 
   
 Je suis le point d'entrée
@@ -21,31 +23,28 @@ Pas d'info => page par défaut
 //?    Require des fichiers de classe / functions / BDD / etc ...
 **********************************/
 
-// j'ai besoin du fichier pour la function show()
-// require __DIR__.'/functions.php';
+
+use App\Controllers\CatalogController;
+use App\Controllers\MainController;
 
 // Fichier de Composer qui va charger les packages automatiquement
-require __DIR__.'/../vendor/autoload.php';
+require '../vendor/autoload.php';
 $altoRouter  = new AltoRouter();
 
-require __DIR__.'/Autoloader.php';
-require __DIR__.'/../app/fonctions/db.php';
-require __DIR__.'/../app/Controllers/MainController.php';
-require __DIR__.'/../app/Controllers/NavController.php';
-require __DIR__.'/../app/Controllers/CatalogController.php';
-require __DIR__.'/../app/Models/Product.php';
-require __DIR__.'/../app/Utils/Database.php';
-require __DIR__.'/../app/Models/NavBar.php';
-// var_dump($_GET);
-// array (size=1)
-//  'page' => string '/home' (length=5)
+//require __DIR__.'/Autoloader.php';
+//require __DIR__.'/../App/fonctions/db.php';
+require __DIR__.'/../App/Controllers/MainController.php';
+//require __DIR__.'/../App/Controllers/NavController.php';
+require __DIR__.'/../App/Controllers/CatalogController.php';
+//require __DIR__.'/../App/Models/Product.php';
+//require __DIR__.'/../App/Utils/Database.php';
+//require __DIR__.'/../App/Models/NavBar.php';
+
 
 /**********************************
 //?    Je m'occupe de $_GET et je définis la vue à afficher
 //?    Par défaut la vue sera 'home'
 **********************************/
-
-// exemple de lien : index.php?page=store
 
 // on vérifie que l'utilisateur nous donne bien l'information
 // de la page qu'il veux, sinon on lui donne la page par défaut
@@ -184,8 +183,10 @@ if ($matchingRoute) {
     // echo "nomMethode : <br>";
     // var_dump($nomMethode);
 
-
+    $pathController='App\\Controllers\\';
     $nomController = $matchingRoute['target']['controller'];
+    $nomController=$pathController.$nomController;
+
     // la valeur est : MainController, on instanciera donc la classe MainController
 
      // Grace à AltoRouter, on peut récupérer le paramètre dans l'url pour l'envoyer en argument de la méthode

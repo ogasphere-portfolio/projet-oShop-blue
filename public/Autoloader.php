@@ -2,7 +2,7 @@
 
 class Autoloader{
 
-    static function register()
+ /*    static function register()
     {
         spl_autoload_register(array(__CLASS__,'autoload'));
     }
@@ -10,5 +10,5 @@ class Autoloader{
     static function autoload($class_name)
     {
         require 'controllers/'.$class_name.'.php';
-    }
+    } */
 }

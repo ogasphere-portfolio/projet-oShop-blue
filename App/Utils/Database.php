@@ -1,5 +1,8 @@
 <?php
 
+namespace app\Utils;
+
+use PDO;
 // Retenir son utilisation  => Database::getPDO()
 // Design Pattern : Singleton
 class Database {
@@ -11,8 +14,8 @@ class Database {
         // la fonction parse_ini_file parse le fichier et retourne un array associatif
         $absoluteURL = isset($_SERVER['BASE_URI']) ? $_SERVER['BASE_URI'] : '';
         
-        $configData = parse_ini_file('../app/config.ini');
-        
+        //$configData = parse_ini_file('../app/config.ini');
+        $configData = parse_ini_file(__DIR__.'/../config.ini');
         try {
             $this->dbh = new PDO(
                 "mysql:host={$configData['DB_HOST']};dbname={$configData['DB_NAME']};charset=utf8",
