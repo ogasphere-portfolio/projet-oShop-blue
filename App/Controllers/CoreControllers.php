@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Type;
 use App\Models\Brand;
 
 class CoreControllers{
@@ -20,6 +21,10 @@ class CoreControllers{
         // on va donc les chercher via le Model et la bonne méthode
         $brandModel = new Brand();
         $allBrandForFooter = $brandModel->findAllForFooter();
+
+
+        $typeModel = new Type();
+        $allTypeForFooter = $typeModel->findAllForFooter();
 
         //TODO faire la même chose pour les types
         // 1 . coder la méthode dans le bon Model

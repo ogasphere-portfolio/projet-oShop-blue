@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-use CoreModels;
+use PDO;
+use App\Models\CoreModels as CoreModels;
+use app\Utils\Database;
 
 /* 
 ********* Informations de la BDD
@@ -24,6 +26,26 @@ class Type extends CoreModels{
      */
     private $footer_order;
 
+    public function findAllForFooter()
+    {
+        // je récupère ma connexion à la BDD
+        $pdo = Database::getPDO();
+
+        // je créer ma requete SQL
+        $sql = "SELECT * 
+                    FROM `type`
+                    WHERE `footer_order` <> 0
+                    ORDER BY `footer_order` ASC";
+
+        // je demande à PDO de faire la requete
+        $pdoStatement = $pdo->query($sql);
+
+        // je demande à récupérer les données au format objet de type Brand
+        $allTypeForFooter = $pdoStatement->fetchAll(PDO::FETCH_CLASS,'App\Models\Type');
+
+        // le but est de renvoyer les objets
+        return $allTypeForFooter;
+    }
     /**
      * Get l'ordre d'affichage du type dans le footer (0=pas affichée dans le footer)
      *

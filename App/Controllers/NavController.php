@@ -31,7 +31,7 @@ class NavController {
             $absoluteURL = $_SERVER['BASE_URI'];
             
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'/index.php?page='. lcfirst($item['link']) .'">' . $item['tittle'] . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'/'.lcfirst($item['link']) .'">' . $item['tittle'] . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }
