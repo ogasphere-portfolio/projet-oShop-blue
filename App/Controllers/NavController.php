@@ -2,15 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Models\NavBar;
+
 class NavController {
 
-    private static $menuItem = ['home', 'category', 'types de produit', 'marques', 'blog','contact'];
+    
     //private static $menuItem = $menuList;
     //private static $menuList;
     public static function showNavBar(){
-        foreach (self::$menuItem as $item) {
+        
+      $NavBar= new NavBar;
+      $menuItem = $NavBar::getNavBar();
+      
+        foreach ($menuItem as $item) {
+           
             $class = '';
-            $currentItem = lcfirst($item);
+            $currentItem = lcfirst($item['link']);
+            dump($currentItem);
             if (isset($_GET['page'])) { 
               if(htmlentities(trim($_GET['page'])) == $currentItem) {
                 $class = 'active';
@@ -21,8 +29,9 @@ class NavController {
           $class = 'active';
         }
             $absoluteURL = $_SERVER['BASE_URI'];
+            
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'index.php?page='. lcfirst($item) .'">' . $item . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'/index.php?page='. lcfirst($item['link']) .'">' . $item['tittle'] . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }

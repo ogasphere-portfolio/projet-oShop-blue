@@ -42,7 +42,7 @@
         <div class="product col-xl-3 col-lg-4 col-sm-6">
           <div class="product-image">
             <a href="<?= $absoluteURL ?>/catalogue/produit/1" class="product-hover-overlay-link">
-              <img src="<?= $absoluteURL ?>/<?= $produit->picture ?>" alt="product" class="img-fluid">
+              <img src="<?= $absoluteURL ?>/<?= $produit->getPicture() ?>" alt="product" class="img-fluid">
             </a>
           </div>
           <div class="product-action-buttons">
@@ -51,7 +51,7 @@
           </div>
           <div class="py-2">
             <p class="text-muted text-sm mb-1">Chausson</p>
-            <h3 class="h6 text-uppercase mb-1"><a href="<?= $absoluteURL ?>/catalogue/produit/1" class="text-dark"><?= $produit->name ?></a></h3><span class="text-muted"><?= $produit->price ?></span>
+            <h3 class="h6 text-uppercase mb-1"><a href="<?= $absoluteURL ?>/catalogue/produit/1" class="text-dark"><?= $produit->getName() ?></a></h3><span class="text-muted"><?= $produit->getPrice() ?></span>
           </div>
         </div>
         <!-- /product-->

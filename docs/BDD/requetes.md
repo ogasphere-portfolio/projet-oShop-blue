@@ -77,7 +77,6 @@ FROM `type`
 WHERE `id` = ?
 ```
 
-
 ## Exploration SQL
 
 ### exemple de INNER JOIN

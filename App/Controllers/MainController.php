@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Controllers\CoreControllers as CoreControllers;
+
+
 /************* MainController ******************* 
   
 Je suis le seul controller (pour l'instant)
@@ -16,7 +20,7 @@ c'est à dire, la page "home"
 
 *******************************************/
 
-class MainController {
+class MainController extends CoreControllers{
 
     // demo dynamique variable
 
@@ -32,6 +36,11 @@ class MainController {
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
         $this->show('mentions-legales');
     }
+    public function displayAbout()
+    {
+        
+        $this->show('about');
+    }
 
     /**
      * Fonction qui require les templates HEADER / FOOTER
@@ -45,32 +54,5 @@ class MainController {
     $viewName = $currentPage;
     $viewData = $weekOpeningHours;
     */
-    public function show($viewName, $viewData = [])
-    {   
-        $absoluteURL = $_SERVER['BASE_URI'];
-        require_once __DIR__.'/../views/header.tpl.php';
-
-        /****************************************** */
-        // exemples : require_once __DIR__."/views/{$viewName}.tpl.php";
-        // si $viewName == 'home'   
-        // require_once __DIR__."/views/home.tpl.php";
-        // si $viewName == 'products'   
-        // require_once __DIR__."/views/products.tpl.php";
-        // si $viewName == 'store'   
-        // require_once __DIR__."/views/store.tpl.php";
-        /****************************************** */
-        
-        // ici je peux utiliser $viewData
-        // donc dans le require aussi
-
-        require_once __DIR__."/../views/{$viewName}.tpl.php";
-        require_once __DIR__.'/../views/footer.tpl.php';
-
-        /* A la manière de la Saison 4 */
-        //require __DIR__.'/views/header.tpl.php';
-        // require __DIR__."/views/{$currentPage}.tpl.php";
-        // Autre manière de concatener notre variable
-        // require __DIR__.'/views/'.$currentPage.'.tpl.php';
-        //require __DIR__.'/views/footer.tpl.php';
-    }
+    
 }

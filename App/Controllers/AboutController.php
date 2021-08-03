@@ -2,6 +2,9 @@
 
 
 namespace App\Controllers;
+
+use CoreControllers;
+
 /************* AboutController ******************* 
   
 Je suis le controller de toutes les fonctionnalité lié aux categories
@@ -18,7 +21,7 @@ c'est à dire, la page About
 
 *******************************************/
 
-class AboutController
+class AboutController extends CoreControllers
 {
     public function affichePageAbout()
     {

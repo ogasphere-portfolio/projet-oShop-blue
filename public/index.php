@@ -33,9 +33,9 @@ $altoRouter  = new AltoRouter();
 
 //require __DIR__.'/Autoloader.php';
 //require __DIR__.'/../App/fonctions/db.php';
-require __DIR__.'/../App/Controllers/MainController.php';
+//require __DIR__.'/../App/Controllers/MainController.php';
 //require __DIR__.'/../App/Controllers/NavController.php';
-require __DIR__.'/../App/Controllers/CatalogController.php';
+//require __DIR__.'/../App/Controllers/CatalogController.php';
 //require __DIR__.'/../App/Models/Product.php';
 //require __DIR__.'/../App/Utils/Database.php';
 //require __DIR__.'/../App/Models/NavBar.php';
@@ -106,7 +106,15 @@ $altoRouter->map(
     ], 
     'legalNotice' );
 
-
+$altoRouter->map( 
+    'GET',
+    '/about', 
+    [
+            "method" => "displayAbout",
+            "controller" => "MainController"
+    ], 
+    'about' );
+    
 $altoRouter->map( 
     'GET', 
     '/catalog/category/[i:id]',         
@@ -144,7 +152,7 @@ $altoRouter->map(
     'produit' );
 
     
-    
+    dump($altoRouter);
 
 
 
@@ -154,8 +162,8 @@ $altoRouter->map(
 // si aucune route ne correspond $matchingRoute va valoir FAUX (booleen)
 $matchingRoute = $altoRouter->match();
 
+dump($matchingRoute);
 
-var_dump($matchingRoute);
 /* $matchingRoute peut ressembler à ça : 
 array (size=3)
   'target' => 
@@ -193,6 +201,7 @@ if ($matchingRoute) {
      $params = $matchingRoute['params'];
 
      $controller = new $nomController();
+     
      $controller->$nomMethode($params);
 }else 
     {
