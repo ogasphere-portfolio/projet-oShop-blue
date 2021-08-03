@@ -3,7 +3,7 @@
       <!-- Breadcrumbs -->
       <ol class="breadcrumb justify-content-center">
         <li class="breadcrumb-item"><a href="<?= $absoluteURL ?>/">Home</a></li>
-        <li class="breadcrumb-item active">Détente</li>
+        <li class="breadcrumb-item active"><?= $product->getCategoryName() ?></li>
       </ol>
     </div>
   </section>
@@ -23,7 +23,7 @@
         <div class="col-lg-6 col-sm-12">
           <div class="mb-3">
             <h3 class="h3 text-uppercase mb-1"><?= $product->getName(); ?></h3>
-            <div class="text-muted">by <em>BOOTstrap</em></div>
+            <div class="text-muted">by <em><?= $product->getBrandName(); ?></em></div>
             <div>
             <?php
               for ($i = 1; $i <= 5; $i++) {
@@ -37,7 +37,7 @@
             </div>
           </div>
           <div class="my-2">
-            <div class="text-muted"><span class="h4">40 €</span> TTC</div>
+            <div class="text-muted"><span class="h4"><?= $product->getPrice() ?> €</span> TTC</div>
           </div>
           <div class="product-action-buttons">
             <form action="" method="post">
@@ -47,7 +47,7 @@
           </div>
           <div class="mt-5">
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, consequuntur vel libero magni tempore rerum eos ipsum assumenda, velit architecto exercitationem animi dicta quis at facilis veritatis ut accusamus ipsa sequi recusandae officia similique tenetur? Nemo, repellat at dolore nobis non reprehenderit iusto, nostrum consectetur unde ab id quo quia eum rem veniam, ratione cum fuga autem odio perspiciatis minus reiciendis recusandae est. Earum praesentium minus quisquam et voluptates facere saepe, non velit tempore obcaecati! Porro esse sint blanditiis nulla in officiis aut dicta ipsum fugit ex enim, ab voluptas maxime culpa? Debitis, sequi minus cum, quos minima tempora eum quas repellat sunt incidunt delectus dolor eaque. Natus fugiat neque facere placeat corporis, commodi cum numquam vel exercitationem temporibus eum?
+            <?= $product->getDescription() ?>
             </p>
           </div>
         </div>

@@ -18,6 +18,10 @@ class Product  extends CoreModels {
     private $brand_id;
     private $category_id;
     private $type_id;
+    private $brandName;
+    private $typeName;
+    private $categoryName;
+
 
     /**
      * méthode qui va chercher un produit, par son ID
@@ -26,11 +30,19 @@ class Product  extends CoreModels {
     {
         
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM `product` WHERE `id` = {$idProduct}";
+        $sql = "  SELECT `product`.* , `category`.`name` AS categoryName, `type`.`name` as typeName, `brand`.`name` as brandName
+        FROM `product`
+        INNER JOIN `category` ON `product`.`category_id` = `category`.`id`
+        INNER JOIN `type` ON `product`.`type_id` = `type`.`id`
+        INNER JOIN `brand` ON `product`.`brand_id` = `brand`.`id`
+        WHERE `product`.`id` = {$idProduct}";
+
+        
+
         $pdoStatement = $pdo->query($sql);
 
         // je demande à récupérer les données au format objet de type Product
-        $produitDeLaBase = $pdoStatement->fetchObject('App\Models\Product');
+        $produitDeLaBase = $pdoStatement->fetchObject(Product::class);
         return $produitDeLaBase;
     }
     
@@ -44,7 +56,12 @@ class Product  extends CoreModels {
         $pdo = Database::getPDO();
         
         
-        $sql = "SELECT * FROM `product` WHERE `category_id` = {$idCategory}";
+        $sql = "SELECT `product`.* , `category`.`name` AS categoryName, `type`.`name` as typeName, `brand`.`name` as brandName
+        FROM `product`
+        INNER JOIN `category` ON `product`.`category_id` = `category`.`id`
+        INNER JOIN `type` ON `product`.`type_id` = `type`.`id`
+        INNER JOIN `brand` ON `product`.`brand_id` = `brand`.`id`
+        WHERE `category_id` = {$idCategory}";
        
         $pdoStatement = $pdo->query($sql);
 
@@ -53,6 +70,47 @@ class Product  extends CoreModels {
         
         return $produitsDeLaBase;
     }
+
+    public function findAllByBrand($idBrand) 
+    {
+        $pdo = Database::getPDO();
+        
+        
+        $sql = "SELECT `product`.* , `category`.`name` AS categoryName, `type`.`name` as typeName, `brand`.`name` as brandName
+        FROM `product`
+        INNER JOIN `category` ON `product`.`category_id` = `category`.`id`
+        INNER JOIN `type` ON `product`.`type_id` = `type`.`id`
+        INNER JOIN `brand` ON `product`.`brand_id` = `brand`.`id`
+        WHERE `category_id` = {$idBrand}";
+       
+        $pdoStatement = $pdo->query($sql);
+
+        $produitsDeLaBase = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Product');
+        
+        
+        return $produitsDeLaBase;
+    }
+
+    public function findAllByType($idType) 
+    {
+        $pdo = Database::getPDO();
+        
+        
+        $sql = "SELECT `product`.* , `category`.`name` AS categoryName, `type`.`name` as typeName, `brand`.`name` as brandName
+        FROM `product`
+        INNER JOIN `category` ON `product`.`category_id` = `category`.`id`
+        INNER JOIN `type` ON `product`.`type_id` = `type`.`id`
+        INNER JOIN `brand` ON `product`.`brand_id` = `brand`.`id`
+        WHERE `type_id` = {$idType}";
+       
+        $pdoStatement = $pdo->query($sql);
+
+        $produitsDeLaBase = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Product::class);
+        
+        
+        return $produitsDeLaBase;
+    }
+
     public function findAllBy(int $idRubrique, string $nomRubrique) 
     {
       
@@ -226,6 +284,43 @@ class Product  extends CoreModels {
     public function setType_id($type_id)
     {
         $this->type_id = $type_id;
+
+        return $this;
+    }
+
+
+    public function getCategoryName()
+    {
+        return $this->categoryName;
+    }
+
+    public function setCategoryName($categoryName)
+    {
+        $this->categoryName = $categoryName;
+
+        return $this;
+    }
+
+    public function getBrandName(): ?string
+    {
+        return $this->brandName;
+    }
+
+    public function setBrandName($brandName)
+    {
+        $this->brandName = $brandName;
+
+        return $this;
+    }
+
+    public function getTypeName()
+    {
+        return $this->typeName;
+    }
+
+    public function setTypeName($typeName)
+    {
+        $this->typeName = $typeName;
 
         return $this;
     }

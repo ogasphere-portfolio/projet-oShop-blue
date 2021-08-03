@@ -6,7 +6,7 @@
               alt="Card image" class="card-img">
             <div class="card-img-overlay d-flex align-items-center">
               <div class="w-100 py-3">
-                <h2 class="display-3 font-weight-bold mb-4">Vintage</h2><a href="category.html" class="btn btn-light">Découvrir</a>
+                <h2 class="display-3 font-weight-bold mb-4">Vintage</h2><a href="category.tpl.php" class="btn btn-light">Découvrir</a>
               </div>
             </div>
           </div>
@@ -16,7 +16,7 @@
               alt="Card image" class="card-img">
             <div class="card-img-overlay d-flex align-items-center">
               <div class="w-100 py-3">
-                <h2 class="display-3 font-weight-bold mb-4">Au travail</h2><a href="category.html" class="btn btn-light">C'est parti</a>
+                <h2 class="display-3 font-weight-bold mb-4">Au travail</h2><a href="category.tpl.php" class="btn btn-light">C'est parti</a>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
               alt="Card image" class="card-img">
             <div class="card-img-overlay d-flex align-items-center">
               <div class="w-100">
-                <h2 class="display-4 mb-4">Sortir</h2><a href="category.html" class="btn btn-link text-white">Faire un tour
+                <h2 class="display-4 mb-4">Sortir</h2><a href="category.tpl.php" class="btn btn-link text-white">Faire un tour
                   <i class="fa-arrow-right fa ml-2"></i></a>
               </div>
             </div>
@@ -42,7 +42,7 @@
               <div class="card-img-overlay d-flex align-items-center">
                 <div class="w-100">
                   <h2 class="display-4 mb-4">Détente</h2>
-                  <a href="category.html" class="btn btn-link text-dark">Se faire plaisir
+                  <a href="category.tpl.php" class="btn btn-link text-dark">Se faire plaisir
                     <i class="fa-arrow-right fa ml-2"></i>
                   </a>
                 </div>
@@ -54,7 +54,7 @@
               alt="Card image" class="card-img">
             <div class="card-img-overlay d-flex align-items-center">
               <div class="w-100">
-                <h2 class="display-4 mb-4">Cérémonie</h2><a href="category.html" class="btn btn-link text-white">Bien choisir <i class="fa-arrow-right fa ml-2"></i></a>
+                <h2 class="display-4 mb-4">Cérémonie</h2><a href="category.tpl.php" class="btn btn-link text-white">Bien choisir <i class="fa-arrow-right fa ml-2"></i></a>
               </div>
             </div>
           </div>

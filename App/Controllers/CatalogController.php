@@ -3,8 +3,10 @@
 
 namespace App\Controllers;
 
+use App\Models\Brand;
+use App\Models\Type;
 use App\Models\Product;
-
+use App\Models\Category;
 
 /************* CatalogController ******************* 
   
@@ -19,18 +21,24 @@ je suis donc en charge de la méthode show()
 Je m'appelle CatalogController, car je m'occupe UNIQUEMENT de la partie Catalogue
 c'est à dire, la page "catalog/category" etc ...
 
-*******************************************/
+ *******************************************/
 // TODO mettre en place l'héritage avec CoreController
-class CatalogController extends CoreControllers{
+class CatalogController extends CoreControllers
+{
 
-/**
- * Méthode afficahnt la liste des produits filtrée par catégorie
- *
- * @param array $parametres tableau de paramètres
- */
+    /**
+     * Méthode afficahnt la liste des produits filtrée par catégorie
+     *
+     * @param array $parametres tableau de paramètres
+     */
     public function displayCategory($parametres)
     {
-        
+        $idCategoryQuiVientDeLaRoute = $parametres['id'];
+
+        $categoryModel = new Category();
+        $categoryQueJeCherche = $categoryModel->find($idCategoryQuiVientDeLaRoute);
+
+
         // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
         // sur la liste des produits
         // l'identifiant est ici :  $parametres['idCategory']
@@ -40,15 +48,16 @@ class CatalogController extends CoreControllers{
 
         // avec le paramètre de la route, je peut demander les produits
         // de la catégory demandé
-        $idCategoryQuiVientDeLaRoute = $parametres['id'];
+
 
         $produitsQueJeCherche = $productModel->findAllByCategory($idCategoryQuiVientDeLaRoute);
 
         $parametresPourLaVue = [
             "products" => $produitsQueJeCherche,
-            "idCategory" => $idCategoryQuiVientDeLaRoute
+            "idCategory" => $idCategoryQuiVientDeLaRoute,
+            "category" => $categoryQueJeCherche
         ];
-        
+
         // TODO à modifier car il manque les infos à afficher, en plus de l'idCategory
         $this->show('category', $parametresPourLaVue);
     }
@@ -61,18 +70,62 @@ class CatalogController extends CoreControllers{
         // TODO aller chercher la liste de produits dans la BDD
 
         // TODO à modifier car il manque les infos à afficher, en plus de l'idBrand
-        $this->show('brand', $parametres);
+        $idMarqueQuiVientDeLaRoute = $parametres['id'];
+
+        $brandModel = new Brand();
+        $marqueQueJeCherche = $brandModel->find($idMarqueQuiVientDeLaRoute);
+
+
+        // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
+        // sur la liste des produits
+        // l'identifiant est ici :  $parametres['idCategory']
+        // TODO aller chercher la liste de produits dans la BDD
+        // on creer un Model Product pour utiliser les méthodes d'accès à la Base (find)
+        $productModel = new Product();
+
+        // avec le paramètre de la route, je peut demander les produits
+        // de la catégory demandé
+
+
+        $produitsQueJeCherche = $productModel->findAllByBrand($idMarqueQuiVientDeLaRoute);
+
+        $parametresPourLaVue = [
+            "products" => $produitsQueJeCherche,
+            "idBrand" => $idMarqueQuiVientDeLaRoute,
+            "brand" => $marqueQueJeCherche
+        ];
+        $this->show('brand', $parametresPourLaVue);
     }
 
     public function dysplayType($parametres)
     {
-        // j'ai besoin de l'identifiant du type pour faire un filtre
-        // sur la liste des produits
-        // l'identifiant est ici :  $parametres['idType']
-        // TODO aller chercher la liste de produits dans la BDD
+        $idTypeQuiVientDeLaRoute = $parametres['id'];
 
-        // TODO à modifier car il manque les infos à afficher, en plus de l'idType
-        $this->show('type', $parametres);
+        $typeModel = new Type();
+        $typeQueJeCherche = $typeModel->find($idTypeQuiVientDeLaRoute);
+
+
+        // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
+        // sur la liste des produits
+        // l'identifiant est ici :  $parametres['idCategory']
+        // TODO aller chercher la liste de produits dans la BDD
+        // on creer un Model Product pour utiliser les méthodes d'accès à la Base (find)
+        $productModel = new Product();
+
+        // avec le paramètre de la route, je peut demander les produits
+        // de la catégory demandé
+
+
+        $produitsQueJeCherche = $productModel->findAllByType($idTypeQuiVientDeLaRoute);
+
+        $parametresPourLaVue = [
+            "products" => $produitsQueJeCherche,
+            "idCategory" => $idTypeQuiVientDeLaRoute,
+            "type" => $typeQueJeCherche
+        ];
+
+        // TODO à modifier car il manque les infos à afficher, en plus de l'idCategory
+        $this->show('type', $parametresPourLaVue);
     }
 
     public function dysplayProduct($parametres)
@@ -97,7 +150,7 @@ class CatalogController extends CoreControllers{
         // TODO à modifier car il manque les infos à afficher, en plus de l'idProduct
         $this->show('product', $parametresPourLaVue);
     }
-     
+
     /**
      * Fonction qui require les templates HEADER / FOOTER
      * Ainsi que la vue donnée en paramètre
@@ -110,4 +163,4 @@ class CatalogController extends CoreControllers{
     $viewName = $currentPage;
     $viewData = $weekOpeningHours;
     */
-}  
+}

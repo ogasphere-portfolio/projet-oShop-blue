@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use PDO;
-use CoreModels;
-use app\Utils\Database;
+
+use App\Utils\Database;
+use App\Models\CoreModels;
 
 
 /*
@@ -33,7 +34,7 @@ class Category extends CoreModels {
        $pdoStatement = $pdo->query($sql);
 
        // je demande à récupérer les données au format objet de type Category
-       $categoryFromBase = $pdoStatement->fetchObject('App\Models\Category');
+       $categoryFromBase = $pdoStatement->fetchObject(Category::class);
 
        // le but est de renvoyer l'objet 
        return $categoryFromBase;       

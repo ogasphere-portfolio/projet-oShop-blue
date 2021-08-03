@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Controllers\CoreControllers as CoreControllers;
+use App\Controllers\CoreControllers;
 
 
 /************* MainController ******************* 

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use PDO;
 use App\Models\CoreModels as CoreModels;
-use app\Utils\Database;
+use App\Utils\Database;
 
 /* 
 ********* Informations de la BDD
@@ -17,7 +17,8 @@ created_at	timestamp [current_timestamp()]	La date de création de la catégorie
 updated_at	timestamp NULL	La date de la dernière mise à jour de la catégorie
 */
 
-class Type extends CoreModels{
+class Type extends CoreModels
+{
 
     /**
      * L'ordre d'affichage du type dans le footer (0=pas affichée dans le footer)
@@ -25,6 +26,23 @@ class Type extends CoreModels{
      * @var int
      */
     private $footer_order;
+    
+    public function find($idType){
+        // je récupère ma connexion à la BDD
+        $pdo = Database::getPDO();
+
+        // je créer ma requete SQL
+       $sql = "SELECT * FROM `type` WHERE `id` = {$idType}";
+
+       // je demande à PDO de faire la requete
+       $pdoStatement = $pdo->query($sql);
+
+       // je demande à récupérer les données au format objet de type Category
+       $TypeFromBase = $pdoStatement->fetchObject(Type::class);
+
+       // le but est de renvoyer l'objet 
+       return $TypeFromBase;       
+   }
 
     public function findAllForFooter()
     {
@@ -41,7 +59,7 @@ class Type extends CoreModels{
         $pdoStatement = $pdo->query($sql);
 
         // je demande à récupérer les données au format objet de type Brand
-        $allTypeForFooter = $pdoStatement->fetchAll(PDO::FETCH_CLASS,'App\Models\Type');
+        $allTypeForFooter = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Type::class);
 
         // le but est de renvoyer les objets
         return $allTypeForFooter;
@@ -50,7 +68,7 @@ class Type extends CoreModels{
      * Get l'ordre d'affichage du type dans le footer (0=pas affichée dans le footer)
      *
      * @return  int
-     */ 
+     */
     public function getFooter_order()
     {
         return $this->footer_order;
@@ -62,7 +80,7 @@ class Type extends CoreModels{
      * @param  int  $footer_order  L'ordre d'affichage du type dans le footer (0=pas affichée dans le footer)
      *
      * @return  self
-     */ 
+     */
     public function setFooter_order(int $footer_order)
     {
         $this->footer_order = $footer_order;

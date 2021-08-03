@@ -17,11 +17,11 @@ puisque c'est moi qui choisit la vue à afficher
 Pas d'info => page par défaut
 (ça rime donc c'est vrai :D)
 
-*******************************************/
+ *******************************************/
 
 /**********************************
 //?    Require des fichiers de classe / functions / BDD / etc ...
-**********************************/
+ **********************************/
 
 
 use App\Controllers\CatalogController;
@@ -44,7 +44,7 @@ $altoRouter  = new AltoRouter();
 /**********************************
 //?    Je m'occupe de $_GET et je définis la vue à afficher
 //?    Par défaut la vue sera 'home'
-**********************************/
+ **********************************/
 
 // on vérifie que l'utilisateur nous donne bien l'information
 // de la page qu'il veux, sinon on lui donne la page par défaut
@@ -70,7 +70,7 @@ if (isset($_GET['page'])) {
 /********** Router ************
 //?    associer l'URL avec la méthode du controller correspondant
 //?    On appelle ça faire des "routes" ou routing 
-**********************************/
+ **********************************/
 
 // On utilise AltoRouteur pour qu'il nous aide à analyser l'URL
 $altoRouter = new AltoRouter();
@@ -88,71 +88,78 @@ $altoRouter->setBasePath($_SERVER['BASE_URI']);
 // exemple complet : $altoRouter->map( 'GET', '/', 'render_home', 'home' );
 
 
-$altoRouter->map( 
+$altoRouter->map(
     'GET',
-    '/', 
-        [
-            "method" => "dysplayHome",
-            "controller" => "MainController"
-        ], 
-    'home' );
+    '/',
+    [
+        "method" => "dysplayHome",
+        "controller" => "MainController"
+    ],
+    'home'
+);
 
- $altoRouter->map( 
+$altoRouter->map(
     'GET',
-    '/mentions-legales', 
+    '/mentions-legales',
     [
         "method" => "dysplayLegalNotice",
         "controller" => "MainController"
-    ], 
-    'legalNotice' );
+    ],
+    'legalNotice'
+);
 
-$altoRouter->map( 
+$altoRouter->map(
     'GET',
-    '/about', 
+    '/A_Propos',
     [
-            "method" => "displayAbout",
-            "controller" => "MainController"
-    ], 
-    'about' );
-    
-$altoRouter->map( 
-    'GET', 
-    '/catalog/category/[i:id]',         
+        "method" => "displayAbout",
+        "controller" => "MainController"
+    ],
+    'about'
+);
+
+$altoRouter->map(
+    'GET',
+    '/catalogue/categorie/[i:id]',
     [
         "method" => "displayCategory",
         "controller" => "CatalogController"
-    ], 
-    'catalog-category' );
+    ],
+    'catalog-category'
+);
 
-$altoRouter->map( 
-    'GET', 
-    '/catalog/type/[i:id]',         
+$altoRouter->map(
+    'GET',
+    '/catalogue/type/[i:id]',
     [
         "method" => "dysplayType",
         "controller" => "CatalogController"
-    ], 
-    'catalog-type' );
+    ],
+    'catalog-type'
+);
 
-$altoRouter->map( 
-    'GET', 
-    '/catalog/marque/[i:id]',         
+$altoRouter->map(
+    'GET',
+    '/catalogue/marque/[i:id]',
     [
-        "method" => "dysplayBrand",
+        "method" => "displayBrand",
         "controller" => "CatalogController"
-    ], 
-    'catalog-marque' );
+    ],
+    'catalog-brand'
+);
 
-$altoRouter->map( 
-    'GET', 
-    '/catalog/produit/[i:id]',         
+$altoRouter->map(
+    'GET',
+    '/catalogue/produit/[i:id]',
     [
         "method" => "dysplayProduct",
         "controller" => "CatalogController"
-    ], 
-    'catalog-produit' );
+    ],
+    'catalog-product'
+);
 
-    
-   
+
+
 
 
 
@@ -178,11 +185,11 @@ array (size=3)
 
 if ($matchingRoute) {
     // j'ai trouvé une route qui correspond
-    
+
     /********** Dispatcher ************
     //?    Grace au nom de la page demandé, on va en déduire le controler/méthode à exécuter
     //?    On appelle ça faire du "dispatch"
-    **********************************/
+     **********************************/
 
     //? je récupère le nom de la méthode associé à ma route
     $tableauInfo = $matchingRoute['target'];
@@ -191,21 +198,19 @@ if ($matchingRoute) {
     // echo "nomMethode : <br>";
     // var_dump($nomMethode);
 
-    $pathController='App\\Controllers\\';
+    $pathController = 'App\\Controllers\\';
     $nomController = $matchingRoute['target']['controller'];
-    $nomController=$pathController.$nomController;
+    $nomController = $pathController . $nomController;
 
     // la valeur est : MainController, on instanciera donc la classe MainController
 
-     // Grace à AltoRouter, on peut récupérer le paramètre dans l'url pour l'envoyer en argument de la méthode
-     $params = $matchingRoute['params'];
+    // Grace à AltoRouter, on peut récupérer le paramètre dans l'url pour l'envoyer en argument de la méthode
+    $params = $matchingRoute['params'];
 
-     $controller = new $nomController();
-     
-     $controller->$nomMethode($params);
-}else 
-    {
-        // Je n'ai pas trouvé de route qui correspond
-        exit('404 not found');
+    $controller = new $nomController();
+
+    $controller->$nomMethode($params);
+} else {
+    // Je n'ai pas trouvé de route qui correspond
+    exit('404 not found');
 }
-
