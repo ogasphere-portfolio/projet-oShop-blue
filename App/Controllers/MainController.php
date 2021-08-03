@@ -27,7 +27,7 @@ class MainController extends CoreControllers{
 
     
     
-    public function dysplayHome(){
+    public function displayHome(){
         // j'utilise la méthode show avec les bons paramètres
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
         
@@ -45,7 +45,7 @@ class MainController extends CoreControllers{
 
         
     }
-    public function dysplayLegalNotice(){
+    public function displayLegalNotice(){
         // j'utilise la méthode show avec les bons paramètres
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
         $this->show('mentions-legales');
@@ -55,7 +55,11 @@ class MainController extends CoreControllers{
         
         $this->show('about');
     }
-
+    public function displayBlog()
+    {
+        
+        $this->show('blog');
+    }
     /**
      * Fonction qui require les templates HEADER / FOOTER
      * Ainsi que la vue donnée en paramètre

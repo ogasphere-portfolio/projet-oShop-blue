@@ -92,7 +92,7 @@ $altoRouter->map(
     'GET',
     '/',
     [
-        "method" => "dysplayHome",
+        "method" => "displayHome",
         "controller" => "MainController"
     ],
     'home'
@@ -102,7 +102,7 @@ $altoRouter->map(
     'GET',
     '/mentions-legales',
     [
-        "method" => "dysplayLegalNotice",
+        "method" => "displayLegalNotice",
         "controller" => "MainController"
     ],
     'legalNotice'
@@ -132,7 +132,7 @@ $altoRouter->map(
     'GET',
     '/catalogue/type/[i:id]',
     [
-        "method" => "dysplayType",
+        "method" => "displayType",
         "controller" => "CatalogController"
     ],
     'catalog-type'
@@ -150,14 +150,23 @@ $altoRouter->map(
 
 $altoRouter->map(
     'GET',
-    '/catalogue/produit/[i:id]',
+    '/catalogue/product/[i:id]',
     [
-        "method" => "dysplayProduct",
+        "method" => "displayProduct",
         "controller" => "CatalogController"
     ],
     'catalog-product'
 );
 
+$altoRouter->map(
+    'GET',
+    '/blog',
+    [
+        "method" => "displayBlog",
+        "controller" => "MainController"
+    ],
+    'blog'
+);
 
 
 

@@ -10,7 +10,7 @@ class NavController {
     //private static $menuItem = $menuList;
     //private static $menuList;
     public static function showNavBar(){
-        
+      global $altoRouter;
       $NavBar= new NavBar;
       $menuItem = $NavBar::getNavBar();
       
@@ -31,7 +31,7 @@ class NavController {
             $absoluteURL = $_SERVER['BASE_URI'];
             
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="'. $absoluteURL .'/'.lcfirst($item['link']) .'">' . $item['tittle'] . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $altoRouter->generate(lcfirst($item['link']), ['id'=>1]) .'">' . $item['title'] . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }

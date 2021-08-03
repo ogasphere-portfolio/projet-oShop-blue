@@ -97,7 +97,7 @@ class CatalogController extends CoreControllers
         $this->show('brand', $parametresPourLaVue);
     }
 
-    public function dysplayType($parametres)
+    public function displayType($parametres)
     {
         $idTypeQuiVientDeLaRoute = $parametres['id'];
 
@@ -128,7 +128,7 @@ class CatalogController extends CoreControllers
         $this->show('type', $parametresPourLaVue);
     }
 
-    public function dysplayProduct($parametres)
+    public function displayProduct($parametres)
     {
         // j'ai besoin de l'identifiant du produit pour faire un filtre
         // sur la liste des produits
