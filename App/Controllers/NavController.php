@@ -18,7 +18,7 @@ class NavController {
            
             $class = '';
             $currentItem = lcfirst($item['link']);
-            dump($currentItem);
+            
             if (isset($_GET['page'])) { 
               if(htmlentities(trim($_GET['page'])) == $currentItem) {
                 $class = 'active';

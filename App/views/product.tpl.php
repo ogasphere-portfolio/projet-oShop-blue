@@ -15,21 +15,25 @@
         <!-- product-->
         <div class="col-lg-6 col-sm-12">
           <div class="product-image">
-            <a href="<?= $absoluteURL ?>/<?= $viewData['product']->picture ?>" class="product-hover-overlay-link">
-              <img src="<?= $absoluteURL ?>/<?= $viewData['product']->picture ?>" alt="product" class="img-fluid">
+            <a href="<?= $absoluteURL ?>/<?= $product->getPicture() ?>" class="product-hover-overlay-link">
+              <img src="<?= $absoluteURL ?>/<?= $product->getPicture() ?>" alt="product" class="img-fluid">
             </a>
           </div>
         </div>
         <div class="col-lg-6 col-sm-12">
           <div class="mb-3">
-            <h3 class="h3 text-uppercase mb-1"><?= $viewData['product']->name; ?></h3>
+            <h3 class="h3 text-uppercase mb-1"><?= $product->getName(); ?></h3>
             <div class="text-muted">by <em>BOOTstrap</em></div>
             <div>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
+            <?php
+              for ($i = 1; $i <= 5; $i++) {
+                if ($i <= $product->getRate()) {
+                  echo '<i class="fa fa-star"></i>';
+                } else {
+                  echo '<i class="fa fa-star-o"></i>';
+                }
+              }
+            ?>
             </div>
           </div>
           <div class="my-2">

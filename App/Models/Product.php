@@ -30,7 +30,7 @@ class Product  extends CoreModels {
         $pdoStatement = $pdo->query($sql);
 
         // je demande à récupérer les données au format objet de type Product
-        $produitDeLaBase = $pdoStatement->fetchObject('Product');
+        $produitDeLaBase = $pdoStatement->fetchObject('App\Models\Product');
         return $produitDeLaBase;
     }
     

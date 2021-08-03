@@ -75,7 +75,7 @@ class CatalogController extends CoreControllers{
         $this->show('type', $parametres);
     }
 
-    public function displayProduct($parametres)
+    public function dysplayProduct($parametres)
     {
         // j'ai besoin de l'identifiant du produit pour faire un filtre
         // sur la liste des produits
@@ -86,7 +86,7 @@ class CatalogController extends CoreControllers{
         $productModel = new Product();
 
         // avec le paramètre de la route, je peut demander le produit avec son idProduct
-        $idQuiVientDeLaRoute = $parametres['idProduct'];
+        $idQuiVientDeLaRoute = $parametres['id'];
 
         $produitQueJeCherche = $productModel->find($idQuiVientDeLaRoute);
 

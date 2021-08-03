@@ -71,7 +71,7 @@
             <h6 class="text-uppercase text-dark mb-3">Produits</h6>
             <ul class="list-unstyled">
             <?php foreach ($allTypeForFooter as $type) : ?>
-              <li> <a href="<?= $absoluteURL ?>/catalogue/type/<?= $type->getId() ?>" class="text-muted"><?= $type->getName() ?></a></li>
+              <li> <a href="<?= $altoRouter->generate('catalog-type', ['id'=>$type->getId()])?>" class="text-muted"><?= $type->getName() ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>
@@ -83,7 +83,7 @@
               foreach ($allBrandForFooter as $brand) : 
               //dump($brand);
               ?>
-                <li> <a href="<?= $absoluteURL ?>/catalogue/marque/<?= $brand->getId() ?>" class="text-muted"><?= $brand->getName() ?></a></li>
+                <li> <a href="<?= $altoRouter->generate('catalog-marque', ['id'=>$brand->getId()])?>" class="text-muted"><?= $brand->getName() ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>

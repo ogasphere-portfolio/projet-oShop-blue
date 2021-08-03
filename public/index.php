@@ -122,7 +122,7 @@ $altoRouter->map(
         "method" => "displayCategory",
         "controller" => "CatalogController"
     ], 
-    'category' );
+    'catalog-category' );
 
 $altoRouter->map( 
     'GET', 
@@ -131,7 +131,7 @@ $altoRouter->map(
         "method" => "dysplayType",
         "controller" => "CatalogController"
     ], 
-    'type' );
+    'catalog-type' );
 
 $altoRouter->map( 
     'GET', 
@@ -140,7 +140,7 @@ $altoRouter->map(
         "method" => "dysplayBrand",
         "controller" => "CatalogController"
     ], 
-    'marque' );
+    'catalog-marque' );
 
 $altoRouter->map( 
     'GET', 
@@ -149,10 +149,10 @@ $altoRouter->map(
         "method" => "dysplayProduct",
         "controller" => "CatalogController"
     ], 
-    'produit' );
+    'catalog-produit' );
 
     
-    dump($altoRouter);
+   
 
 
 
@@ -162,7 +162,7 @@ $altoRouter->map(
 // si aucune route ne correspond $matchingRoute va valoir FAUX (booleen)
 $matchingRoute = $altoRouter->match();
 
-dump($matchingRoute);
+
 
 /* $matchingRoute peut ressembler à ça : 
 array (size=3)
