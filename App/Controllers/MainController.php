@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Category;
 use App\Controllers\CoreControllers;
 
 
@@ -29,7 +30,20 @@ class MainController extends CoreControllers{
     public function dysplayHome(){
         // j'utilise la méthode show avec les bons paramètres
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
-        $this->show('home');
+        
+        $categoryModel = new Category();
+        $allCategoryQueJeCherche = $categoryModel->findAllForHome();
+
+        
+        $parametresPourLaVue = [
+            "category" => $allCategoryQueJeCherche,
+            
+        ];
+
+        // TODO à modifier car il manque les infos à afficher, en plus de l'idCategory
+        $this->show('home', $parametresPourLaVue);
+
+        
     }
     public function dysplayLegalNotice(){
         // j'utilise la méthode show avec les bons paramètres

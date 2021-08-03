@@ -83,7 +83,7 @@
               foreach ($allBrandForFooter as $brand) : 
               //dump($brand);
               ?>
-                <li> <a href="<?= $altoRouter->generate('catalog-marque', ['id'=>$brand->getId()])?>" class="text-muted"><?= $brand->getName() ?></a></li>
+                <li> <a href="<?= $altoRouter->generate('catalog-brand', ['id'=>$brand->getId()])?>" class="text-muted"><?= $brand->getName() ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>
