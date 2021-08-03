@@ -60,6 +60,11 @@ class MainController extends CoreControllers{
         
         $this->show('blog');
     }
+    public function displayCart()
+    {
+        
+        $this->show('cart');
+    }
     /**
      * Fonction qui require les templates HEADER / FOOTER
      * Ainsi que la vue donnée en paramètre

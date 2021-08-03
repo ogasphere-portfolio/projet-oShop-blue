@@ -150,7 +150,7 @@ $altoRouter->map(
 
 $altoRouter->map(
     'GET',
-    '/catalogue/product/[i:id]',
+    '/catalogue/produit/[i:id]',
     [
         "method" => "displayProduct",
         "controller" => "CatalogController"
@@ -166,6 +166,15 @@ $altoRouter->map(
         "controller" => "MainController"
     ],
     'blog'
+);
+$altoRouter->map(
+    'GET',
+    '/cart',
+    [
+        "method" => "displayCart",
+        "controller" => "MainController"
+    ],
+    'cart'
 );
 
 

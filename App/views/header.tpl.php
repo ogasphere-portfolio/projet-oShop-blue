@@ -97,7 +97,7 @@
                     <div class="navbar-cart-total"><span class="text-uppercase text-muted">Total</span><strong class="text-uppercase">75 €</strong></div>
                     <!-- buttons-->
                     <div class="d-flex justify-content-between">
-                      <a href="cart.html" class="btn btn-link text-dark mr-3">Voir le panier <i class="fa-arrow-right fa"></i></a>
+                      <a href="<?= $altoRouter->generate('cart')?>" class="btn btn-link text-dark mr-3">Voir le panier <i class="fa-arrow-right fa"></i></a>
                       <a href="#" class="btn btn-outline-dark">Commander</a>
                     </div>
                   </div>

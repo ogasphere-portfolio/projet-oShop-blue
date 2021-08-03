@@ -67,9 +67,7 @@ class CatalogController extends CoreControllers
         // j'ai besoin de l'identifiant de la marque pour faire un filtre
         // sur la liste des produits
         // l'identifiant est ici :  $parametres['idBrand']
-        // TODO aller chercher la liste de produits dans la BDD
-
-        // TODO à modifier car il manque les infos à afficher, en plus de l'idBrand
+       
         $idMarqueQuiVientDeLaRoute = $parametres['id'];
 
         $brandModel = new Brand();
@@ -79,7 +77,7 @@ class CatalogController extends CoreControllers
         // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
         // sur la liste des produits
         // l'identifiant est ici :  $parametres['idCategory']
-        // TODO aller chercher la liste de produits dans la BDD
+        
         // on creer un Model Product pour utiliser les méthodes d'accès à la Base (find)
         $productModel = new Product();
 

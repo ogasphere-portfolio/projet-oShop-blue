@@ -39,12 +39,13 @@
         <!-- product-->
         <div class="product col-xl-3 col-lg-4 col-sm-6">
           <div class="product-image">
+          
             <a href="<?= $absoluteURL ?>/catalogue/produit/<?= $produit->getId() ?>" class="product-hover-overlay-link">
               <img src="<?= $absoluteURL ?>/<?= $produit->getPicture() ?>" alt="product" class="img-fluid">
             </a>
           </div>
           <div class="product-action-buttons">
-            <a href="#" class="btn btn-outline-dark btn-product-left"><i class="fa fa-shopping-cart"></i></a>
+            <a href="<?= $absoluteURL ?>/cart" class="btn btn-outline-dark btn-product-left"><i class="fa fa-shopping-cart"></i></a>
             <a href="<?= $absoluteURL ?>/catalogue/produit/<?= $produit->getId() ?>" class="btn btn-dark btn-buy"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Voir</span></a>
           </div>
           <div class="py-2">
