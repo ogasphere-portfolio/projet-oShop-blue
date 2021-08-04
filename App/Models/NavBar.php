@@ -22,7 +22,7 @@ class NavBar
         $pdo = Database::getPDO();
         $sql = $pdo->prepare("SELECT * FROM `nav` where `nav`.`id`= $id ORDER BY `nav_order`");
         $sql->execute();
-        $menuList = $sql->fetchObject(NavBar::class);
-        return $menuList;
+        $menuItem = $sql->fetchObject(NavBar::class);
+        return $menuItem;
     }
 }

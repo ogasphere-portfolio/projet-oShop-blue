@@ -33,33 +33,32 @@ class CatalogController extends CoreControllers
      */
     public function displayCategory($parametres)
     {
-        $idCategoryQuiVientDeLaRoute = $parametres['id'];
+        if (!$parametres=="") {
+            $idCategoryQuiVientDeLaRoute = $parametres['id'];
+            $categoryModel = new Category();
+            $categoryQueJeCherche = $categoryModel->find($idCategoryQuiVientDeLaRoute);
+            $productModel = new Product();
+            $produitsQueJeCherche = $productModel->findAllByCategory($idCategoryQuiVientDeLaRoute);
+            $parametresPourLaVue = [
+                "products" => $produitsQueJeCherche,
+                "idCategory" => $idCategoryQuiVientDeLaRoute,
+                "category" => $categoryQueJeCherche
+            ];
+            $this->show('category', $parametresPourLaVue);
+        }else{
 
+             
         $categoryModel = new Category();
-        $categoryQueJeCherche = $categoryModel->find($idCategoryQuiVientDeLaRoute);
-
-
-        // j'ai besoin de l'identifiant de la catégorie pour faire un filtre
-        // sur la liste des produits
-        // l'identifiant est ici :  $parametres['idCategory']
-        // TODO aller chercher la liste de produits dans la BDD
-        // on creer un Model Product pour utiliser les méthodes d'accès à la Base (find)
-        $productModel = new Product();
-
-        // avec le paramètre de la route, je peut demander les produits
-        // de la catégory demandé
-
-
-        $produitsQueJeCherche = $productModel->findAllByCategory($idCategoryQuiVientDeLaRoute);
-
+        $allCategoryQueJeCherche = $categoryModel->findAllForHome();
         $parametresPourLaVue = [
-            "products" => $produitsQueJeCherche,
-            "idCategory" => $idCategoryQuiVientDeLaRoute,
-            "category" => $categoryQueJeCherche
+            "category" => $allCategoryQueJeCherche,
+            
         ];
+    
+        $this->show('category_list', $parametresPourLaVue);
+        }
+        
 
-        // TODO à modifier car il manque les infos à afficher, en plus de l'idCategory
-        $this->show('category', $parametresPourLaVue);
     }
 
     public function displayBrand($parametres)

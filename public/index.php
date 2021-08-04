@@ -127,7 +127,15 @@ $altoRouter->map(
     ],
     'catalog-category'
 );
-
+$altoRouter->map(
+    'GET',
+    '/catalogue/categorie',
+    [
+        "method" => "displayCategory_List",
+        "controller" => "MainController"
+    ],
+    'catalog-category_list'
+);
 $altoRouter->map(
     'GET',
     '/catalogue/type/[i:id]',

@@ -11,6 +11,8 @@ class NavController {
 
     public static function showNavBar(){
       global $altoRouter;
+      
+      // On recupere les menus dans la bdd
       $NavBar= new NavBar;
       $menuItem = $NavBar::getNavBar();
       
@@ -22,16 +24,20 @@ class NavController {
             if (isset($_GET['page'])) { 
               if(htmlentities(trim($_GET['page'])) == $currentItem) {
                 $class = 'active';
+              
               } 
             }
-
+          
         if($_SERVER['QUERY_STRING'] == '' && $currentItem == 'home') {
           $class = 'active';
         }
+        
+        
+        
             $absoluteURL = $_SERVER['BASE_URI'];
             
             echo '<li class="nav-item ' . $class . ' px-lg-4">';
-            echo '<a class="nav-link text-uppercase text-expanded" href="'. $altoRouter->generate(lcfirst($item['link']), ['id'=>1]) .'">' . $item['title'] . ' <span class="sr-only">(current)</span>
+            echo '<a class="nav-link text-uppercase text-expanded" href="'. $altoRouter->generate(lcfirst($item['name_route'])) .'">' . $item['title'] . ' <span class="sr-only">(current)</span>
           </a>';
             echo '</li>';
         }

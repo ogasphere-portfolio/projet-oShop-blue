@@ -45,6 +45,26 @@ class MainController extends CoreControllers{
 
         
     }
+    public function displayCategory_List(){
+        // j'utilise la méthode show avec les bons paramètres
+        // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
+        
+        $categoryModel = new Category();
+        $allCategoryQueJeCherche = $categoryModel->findAllForHome();
+
+        
+        $parametresPourLaVue = [
+            "category" => $allCategoryQueJeCherche,
+            
+        ];
+
+       
+        $this->show('category_list', $parametresPourLaVue);
+
+        
+    }
+
+    
     public function displayLegalNotice(){
         // j'utilise la méthode show avec les bons paramètres
         // je sais que cette méthode doit affiche la page home, obvious, le nom de la méthode
