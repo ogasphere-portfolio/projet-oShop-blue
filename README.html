@@ -1,0 +1,109 @@
+<h1 id="projet-_dans-les-shoe_">Projet <em>Dans les shoe</em></h1>
+<h2 id="description-du-projet">Description du projet</h2>
+<p>Un client veut créer un site de e-commerce, en l'occurence une boutique en ligne de chaussures.  <br />
+Le site va probablement s'appeller <em>Dans les shoe</em>, mais le nom de code du projet est pour l'instant : <strong>oShop</strong>.</p>
+<p>Oui, il y a déjà beaucoup de concurrence sur le marché, mais&nbsp;le client est en fait un groupement de plusieurs marques de chaussures qui ne sont pas encore présentes sur internet. Et ces marques ne souhaitent pas dépendre d'une autre société pour la distribution, telle que <a href="https://fr.wikipedia.org/wiki/Sarenza">Sarenza</a> ou un de ses concurrents.</p>
+<h2 id="brief-client">Brief client</h2>
+<h3 id="sur-toutes-les-pages">Sur toutes les pages</h3>
+<p>En bas de chaque page, il y aura :</p>
+<ul>
+<li>le nom de la boutique</li>
+<li>le slogan</li>
+<li>les liens vers les pages de la boutique sur les réseaux sociaux</li>
+<li>5 types de produits</li>
+<li>5 marques de produits</li>
+<li>la mise en avant du fait que livraison et retours sont gratuits, que les clients ont 30 jours pour renvoyer leur produit, que les internautes peuvent contacter notre service client au 01 02 03 04 05 de 8h à 19h, du lundi au vendredi</li>
+<li>un formulaire d'inscription à la newsletter</li>
+</ul>
+<h3 id="catalogue">Catalogue</h3>
+<p>Voici le contenu du site prévu pour l'instant :</p>
+<ul>
+<li>une page d'accueil (avec 5 catégories mises en avant)</li>
+<li>une page des produits pour chaque catégorie (détente, en ville, pour le sport)</li>
+<li>une page produit</li>
+<li>une page des produits pour chaque type de produits (chaussons, escarpins, talons aiguilles)</li>
+<li>une page des produits pour chaque marque</li>
+</ul>
+<h3 id="panier-dachat">Panier d'achat</h3>
+<ul>
+<li>les produits pourront être ajoutés au panier depuis :</li>
+<li>la liste de produits de la page "catégorie"</li>
+<li>la page du produit</li>
+<li>le client voit un résumé du panier dans l'entête de chaque page</li>
+<li>le client peut aller sur une page panier dédiée (accessible depuis le résumé)</li>
+</ul>
+<h3 id="commande">Commande</h3>
+<p>Après avoir cliqué sur le bouton "Valider ma commande" présent sur la page panier :</p>
+<ul>
+<li>[si besoin] le client se connecte à son compte client ou s'inscrit</li>
+<li>sur une seule page, il renseigne :</li>
+<li>adresse de facturation</li>
+<li>adresse de livraison</li>
+<li>choix de la méthode livraison</li>
+<li>méthode de paiement</li>
+<li>puis il arrive sur un résumé de sa commande affichant :</li>
+<li>les informations de la page précédente</li>
+<li>le contenu du panier</li>
+<li>un bouton de paiement amenant sur notre prestataire de paiement en ligne sécurisé</li>
+<li>au retour du paiement en ligne,</li>
+<li>si le paiement est accepté, on affiche la page de confirmation de commande</li>
+<li>sinon, on affiche la page de commande annulée avec la possibilité de revenir en arrière (au choix du paiement)</li>
+</ul>
+<h3 id="backoffice">BackOffice</h3>
+<p>Zone réservée aux administrateurs <em>business</em> et techniques du site.</p>
+<ul>
+<li>l'accès à cette zone nécessite de se connecter avec son compte</li>
+<li>les échanges entre le navigateur et le serveur Web sont chiffrés par soucis de confidentialité &amp; sécurité</li>
+<li>gestion des catégories (liste, ajout, modification, suppression)</li>
+<li>gestion des produits (liste, ajout, modification, suppression)</li>
+<li>gestion des types de produits (liste, ajout, modification, suppression)</li>
+<li>gestion des marques (liste, ajout, modification, suppression)</li>
+<li>gestion des commandes (liste + changement du statut payé-envoyé-annulé-retourné)</li>
+<li>gestion des 5 catégories en page d'accueil</li>
+<li>gestion des 5 types de produits en bas de page</li>
+<li>gestion des 5 marques en bas de page</li>
+<li>gestion des utilisateurs du BackOffice</li>
+<li>3 types d'utilisateurs :</li>
+<li><code>catalog manager</code> pouvant gérer les données sur les produits du site (y compris catégories, types et marque)</li>
+<li><code>admin</code> pouvant, en plus de ce que peut faire un <code>catalog manager</code>, modifier le statut des commandes</li>
+<li><code>superadmin</code> pouvant, en plus de ce que peut faire un <code>admin</code>, modifier le statut des commandes et créer des utilisateurs</li>
+</ul>
+<h2 id="documents-techniques">Documents techniques</h2>
+<ul>
+<li><a href="docs/user_stories.md">User stories</a></li>
+<li><a href="docs/product_backlog.md">Product backlog</a></li>
+<li><a href="docs/html-css/">Intégration HTML/CSS</a></li>
+</ul>
+<h2 id="organisation">Organisation</h2>
+<p>L'organisation pour le développement du site est horizontale, et suit la méthode agile <em>Scrum</em> (développement itératif par <em>Sprints</em>).</p>
+<p>Il y a des rôles prédéfinis. Quel que soit son rôle, on ne donne d'ordre à personne : chaque personne qui assume un rôle s'occupe de sa partie, de ses responsabilités, et se coordonne avec les autres si besoin.</p>
+<h3 id="product-owner">Product Owner</h3>
+<p>Fiche récap : https://kourou.oclock.io/ressources/fiche-recap/scrum/#product-owner</p>
+<p>Le Product Owner est Adrien.</p>
+<p>Le Product Owner est l'unique rédacteur du <em>Product Backlog</em>.  <br />
+Le Product Owner peut aider les développeurs pour clarifier certaines fonctionnalités, répondre aux questions sur le projet.</p>
+<h3 id="scrum-master">Scrum Master</h3>
+<p>Fiche récap : https://kourou.oclock.io/ressources/fiche-recap/scrum/#scrum-master</p>
+<p>Le prof de chaque cockpit tiendra le rôle de Scrum Master.</p>
+<p>Le Scrum Master est une aide, un support aux autres membres de l'équipe, pour s'assurer que tout le monde suive bien la méthodologie <em>Scrum</em>.</p>
+<h3 id="developer">Developer</h3>
+<p>Fiche récap : https://kourou.oclock.io/ressources/fiche-recap/scrum/#%c3%a9quipe</p>
+<p>Le prof de chaque cockpit et les étudiants tiennent le rôle de développeur.</p>
+<p>Lors du <em>Sprint Planning</em>, les développeurs sont les seuls à décider quels éléments du <em>Product Backlog</em> sont à intégrer au <em>Sprint Backlog</em>. Pour cela, ils prennent en compte l'importance de chaque élément pour essayer de les réaliser en priorité.  <br />
+Lors du <em>Sprint Planning</em>, les développeurs peuvent utiliser le <em>Planning Poker</em> (<a href="https://kourou.oclock.io/ressources/fiche-recap/scrum/#sprint-planning">fiche récap</a>) pour déterminer l'effort (la difficulté, la complexité) pour chaque élément du <em>Product Backlog</em> (il n'est pas nécessaire de passer sur toutes les user stories).</p>
+<h3 id="sprints">Sprints</h3>
+<p>Chaque <em>Sprint</em> va durer une "saison", soit 8 jours.</p>
+<p>À la fin de chaque <em>Sprint</em> sera livré un <em>Incrément</em> du projet, contenant les fonctionnalités mises en place pendant ce <em>Sprint</em> (<em>Sprint Backlog</em>).</p>
+<h3 id="daily-scrum">Daily Scrum</h3>
+<p>Chaque début de journée, les <em>Developers</em> organisent un <em>Daily Scrum</em> "lite" (léger) afin de savoir :</p>
+<ul>
+<li>ce que chacun a fait la veille</li>
+<li>ce que chacun compte faire aujourd'hui</li>
+<li>ce qui nous bloque, si quelque chose nous bloque</li>
+</ul>
+<h2 id="versions-du-projet">Versions du projet</h2>
+<p>Le logiciel de versionning pour ce projet sera <em>Git</em>.</p>
+<p>Chaque fonctionnalité sera codée dans une branche séparée.  <br />
+Lorsque la fonctionnalité est terminée, une <em>Pull Request</em>, avec 3 à 4 reviewers parmi les <em>Developers</em>, sera créée afin de garantir la qualité du code. Une fois validée, la <em>Pull Request</em> pourra être fusionnée dans la branche <code>master</code>.</p>
+<h2 id="documentation">Documentation</h2>
+<p>La documentation technique devra être rédigée <strong>en anglais</strong>.</p>

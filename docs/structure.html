@@ -1,0 +1,48 @@
+<h1 id="structure">Structure</h1>
+<h2 id="dossier-public">Dossier <code>public</code></h2>
+<p>Ce dossier contient tous les fichiers "public".  <br />
+C'est-à-dire les fichiers qui peuvent être accédés par le client (navigateur).</p>
+<ul>
+<li><code>index.php</code> (<em>FrontController</em>)</li>
+<li>fichiers CSS</li>
+<li>fichiers JS</li>
+<li>fichiers images</li>
+<li><code>.htaccess</code> (parce qu'il fait partie du <em>FrontController</em>)</li>
+</ul>
+<h2 id="dossier-app">Dossier <code>app</code></h2>
+<p>Contient tous les fichiers qui n'ont pas besoin d'être accédés par le client (navigateur).  <br />
+Ils sont inclus par du code PHP.</p>
+<ul>
+<li>les <em>Controllers</em></li>
+<li>les <em>Classes</em></li>
+<li>les <em>Templates</em> / <em>Views</em></li>
+<li>=&gt; tous les fichiers "inclus"</li>
+</ul>
+<h2 id="appcontrollers"><code>app/Controllers</code></h2>
+<p>La bonne pratique à suivre pour les dossiers dans <code>app</code> qui vont contenir des classes, est de nommer ces dossiers en <em>UpperCamelCase</em>.</p>
+<h2 id="public-dans-lurl-">"public" dans l'URL ?</h2>
+<p>En local, pour nos tests, ok  <br />
+En prod =&gt; NON !</p>
+<h3 id="mauvaise-configuration-en-prod-x">Mauvaise configuration en prod ❌</h3>
+<pre><code class="hljs text language-text">monsite.com
+=&gt; dossier /var/www/html/monsite-site.com-en-prod
+
+mon-second-site.com
+=&gt; dossier /var/www/html/mon-site-numero2
+</code></pre>
+<h3 id="bonne-configuration-en-prod-heavy_check_mark">Bonne configuration en prod ✔️</h3>
+<pre><code class="hljs text language-text">monsite.com
+=&gt; dossier /var/www/html/monsite-site.com-en-prod/public
+
+mon-second-site.com
+=&gt; dossier /var/www/html/mon-site-numero2/public
+</code></pre>
+<h2 id="publicassets"><code>public/assets</code></h2>
+<p>Dossier contenant tous les "atouts" de nos pages HTML.  <br />
+C'est la convention/bonne pratique à suivre pour organiser nos dossiers.</p>
+<ul>
+<li>fichiers CSS</li>
+<li>fichiers JS</li>
+<li>fichiers images</li>
+<li>etc.</li>
+</ul>

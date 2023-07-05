@@ -1,0 +1,65 @@
+<h1 id="sql">SQL</h1>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-visualiser-les-produits-par-catégorie-afin-daccéder-intuitivement-aux-chaussures-désirées">En tant que visiteur, je veux pouvoir visualiser les produits par catégorie afin d'accéder intuitivement aux chaussures désirées</h2>
+<p>category_id 1 fonctionne</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `product` <span class="hljs-keyword">WHERE</span> `category_id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-visualiser-les-produits-par-marque-afin-daccéder-intuitivement-aux-chaussures-désirées">En tant que visiteur, je veux pouvoir visualiser les produits par marque afin d'accéder intuitivement aux chaussures désirées</h2>
+<p>brand_id 7 fonctionne</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `product` <span class="hljs-keyword">WHERE</span> `brand_id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-visualiser-les-produits-par-type-afin-daccéder-intuitivement-aux-chaussures-désirées">En tant que visiteur, je veux pouvoir visualiser les produits par type afin d'accéder intuitivement aux chaussures désirées</h2>
+<p>type_id 4 fonctionne</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `product` <span class="hljs-keyword">WHERE</span> `type_id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-accéder-à-une-description-détaillée-de-chaque-produit">En tant que visiteur, je veux pouvoir accéder à une description détaillée de chaque produit</h2>
+<p>id 1 fonctionne</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `product` <span class="hljs-keyword">WHERE</span> `id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-accéder-à-5-marques-mises-en-avant-sur-toutes-les-page-afin-de-naviguer-plus-rapidement-sur-le-site">En tant que visiteur, je veux pouvoir accéder à 5 marques mises en avant sur toutes les page afin de naviguer plus rapidement sur le site</h2>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `brand`
+<span class="hljs-comment">-- WHERE `footer_order` &gt; 0</span>
+<span class="hljs-comment">-- WHERE `footer_order` != 0</span>
+<span class="hljs-keyword">WHERE</span> `footer_order` <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> `footer_order` <span class="hljs-keyword">ASC</span>
+</code></pre>
+<h2 id="en-tant-que-visiteur-je-veux-pouvoir-accéder-à-5-types-de-produit-mises-en-avant-sur-toutes-les-page-afin-de-naviguer-plus-rapidement-sur-le-site">En tant que visiteur, je veux pouvoir accéder à 5 types de produit mises en avant sur toutes les page afin de naviguer plus rapidement sur le site</h2>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> `type`
+<span class="hljs-comment">-- WHERE `footer_order` &gt; 0</span>
+<span class="hljs-comment">-- WHERE `footer_order` != 0</span>
+<span class="hljs-keyword">WHERE</span> `footer_order` <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> `footer_order` <span class="hljs-keyword">ASC</span>
+</code></pre>
+<h2 id="toutes-les-informations-dune-catégorie">toutes les informations d'une catégorie</h2>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span>
+<span class="hljs-keyword">FROM</span> `category`
+<span class="hljs-comment">-- WHERE `name` = &#x27;Cérémonie&#x27; </span>
+<span class="hljs-keyword">WHERE</span> `id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="toutes-les-informations-dune-marque">toutes les informations d'une marque</h2>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span>
+<span class="hljs-keyword">FROM</span> `brand`
+<span class="hljs-keyword">WHERE</span> `id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="toutes-les-informations-dun-type">toutes les informations d'un type</h2>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span>
+<span class="hljs-keyword">FROM</span> `type`
+<span class="hljs-keyword">WHERE</span> `id` <span class="hljs-operator">=</span> ?
+</code></pre>
+<h2 id="exploration-sql">Exploration SQL</h2>
+<h3 id="exemple-de-inner-join">exemple de INNER JOIN</h3>
+<p>je cherche à récupere tout les produits d'une category<br />
+mais je veux aussi le nom de la catégorie auquel ils appartiennent</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-keyword">SELECT</span> `product`.<span class="hljs-operator">*</span> , `category`.`name`
+<span class="hljs-keyword">FROM</span> `product`
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> `category` <span class="hljs-keyword">ON</span> `product`.`category_id` <span class="hljs-operator">=</span> `category`.`id`
+<span class="hljs-keyword">WHERE</span> `category_id` <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+</code></pre>
+<p>je cherche à récupere tout les produits (sans filtre)<br />
+mais je veux aussi le nom de la catégorie auquel ils appartiennent</p>
+<pre><code class="hljs SQL language-SQL"><span class="hljs-comment">-- le hic c&#x27;est que * dit tout les champs de toutes les tables</span>
+<span class="hljs-comment">-- il faut donc préciser ce que l&#x27;on veux comme champs</span>
+<span class="hljs-keyword">SELECT</span> product.<span class="hljs-operator">*</span> , category.name
+<span class="hljs-keyword">FROM</span> product 
+<span class="hljs-comment">-- je défini la relation entre mes tables</span>
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> category <span class="hljs-keyword">ON</span> product.category_id <span class="hljs-operator">=</span> category.id
+</code></pre>
